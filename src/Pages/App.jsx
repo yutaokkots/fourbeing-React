@@ -57,7 +57,6 @@ export default function App() {
                         <Route path='/' element={<Dashboard user={ user }/>} />
                         <Route path='/login' element={<AuthPage user={ user } setUser={ setUser}/>} />
                         <Route path='/profile' element={<Profile user={ user } setUser={ setUser}/>} />
-                    
                 </Routes>
             </AuthContext.Provider>
         </>
