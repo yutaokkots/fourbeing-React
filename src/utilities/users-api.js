@@ -1,5 +1,6 @@
 
-const BASE_URL = 'http://localhost:8000/api/auth'
+
+const BASE_URL = '/api/auth'
 import sendRequest from './send-requests'
 
 

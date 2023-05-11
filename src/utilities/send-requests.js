@@ -1,5 +1,12 @@
 import * as userService from './users-service'
 
+const DEV_URL = import.meta.env.VITE_DEVL_URL
+const PROD_URL = import.meta.env.VITE_PROD_URL
+
+
+
+// http://localhost:8000/
+
 export default async function sendRequest(url, method = 'GET', payload = null) {
     const options = { method };
     if (payload) {
@@ -12,8 +19,9 @@ export default async function sendRequest(url, method = 'GET', payload = null) {
         options.headers = options.headers || {};
         options.headers.Authorization = `Bearer ${token}`;
     }  
-
-    const res = await fetch(url, options);
+    console.log(DEV_URL)
+    console.log(PROD_URL)
+    const res = await fetch(`${DEV_URL}${url}`, options);
     if (res.ok) return res.json();
     throw new Error('Bad Request')
     

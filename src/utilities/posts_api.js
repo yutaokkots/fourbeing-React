@@ -1,6 +1,6 @@
 import sendRequest from "./send-requests"
 
-const BASE_URL = "http://localhost:8000/api/fourbeing/"
+const BASE_URL = "/api/fourbeing"
 
 export function getPostAll(){
     return sendRequest(`${BASE_URL}`)
@@ -11,15 +11,15 @@ export function getPost(){
 }
 
 export function createPost(){
-    return sendRequest(`${BASE_URL}create/`)
+    return sendRequest(`${BASE_URL}/create/`)
 }
 
 export function deletePost(){
-    return sendRequest(`${BASE_URL}create/`)
+    return sendRequest(`${BASE_URL}/create/`)
 }
 
 export function updatePost(){
-    return sendRequest(`${BASE_URL}create/`)
+    return sendRequest(`${BASE_URL}/create/`)
 }
 
 

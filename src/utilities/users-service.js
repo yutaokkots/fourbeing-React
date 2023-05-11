@@ -1,30 +1,6 @@
 import * as usersAPI from './users-api'
 
 
-// export async function signUp(userData){
-//     let loginData = {
-//         username: userData.username,
-//         password: userData.password
-//     }
- 
-
-//     await usersAPI.signUp(userData).then((response) => {
-//         console.log(response.token)
-//         console.log(response)
-//         console.log("here")
-//         if (response.token === "getToken"){
-//             // let loginData = {...userData}
-//             // delete loginData.email
-//             // delete loginData.passwordConfirm
-//             console.log(loginData)
-//             return usersAPI.login(loginData)
-//         }}).then((token) => {
-//             localStorage.setItem('token', token.token.access);
-//         })
-
-//     //localStorage.setItem('token', token.token.access);
-//     return getUser()
-// }
 
 export async function signUp(userData){
     let loginData = {
