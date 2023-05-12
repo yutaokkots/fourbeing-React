@@ -14,23 +14,31 @@ const initialProfile = {
 
 export default function Profile() {
     const [profile, setProfile] = useState(initialProfile)
+    // holds bool state to show Profile or CreateProfile components
+    const [profileExists, setProfileExists] = useState(false)
     const { user, setUser } = useContext(AuthContext)
     const [editProfile, setEditProfile] = useState(false)
 
+    // loads the screen with a user's profile information, if any. 
+    // if no user profile exists, the profileExists state is set to false
     useEffect(()=>{
         async function getProfile(){
             const profile = await profileAPI.getProfile()
-            console.log(profile)
+            
+            if (profile.profile === "None"){
+                setProfileExists(false)
+            } else if (profile.profile !== "None") {
+                setProfile(profile.profile)
+                setProfileExists(true)
+                console.log(profile.profile)
+            }
         }
-
-
         getProfile()
-
     },[])
 
+    // toggles between showing the profile and editing the profile. 
     function profileEditor(){
         setEditProfile(!editProfile)
-        console.log(editProfile)
     }
 
     return (
@@ -41,9 +49,15 @@ export default function Profile() {
                     <div className="grid grid-cols-7 gap-5">
                         <div className='flex flex-col bg-moonlight col-start-2 col-span-2 items-center'>
                             { editProfile ?
-                            <CreateProfile profileEditor={ profileEditor } />
+                            <CreateProfile 
+                                user={user}
+                                profileEditor={ profileEditor } 
+                                profileExists={ profileExists } />
                             :
-                            <ViewProfile profileEditor={ profileEditor } />
+                            <ViewProfile 
+                                profile={ profile }
+                                profileEditor={ profileEditor }
+                                profileExists={ profileExists } />
                             }
                         </div>
 

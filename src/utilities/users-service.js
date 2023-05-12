@@ -51,3 +51,9 @@ export async function login(credentials){
 export function logOut() {
     localStorage.removeItem('token');
 }
+
+
+export function getUserId(){
+    const token = localStorage.getItem("token");
+    return token ? JSON.parse(window.atob(token.split('.')[1])).user_id : null
+}

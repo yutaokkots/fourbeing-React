@@ -1,7 +1,8 @@
 import React, {useContext} from 'react'
+import PropTypes from 'prop-types'
 import { AuthContext } from '../App'
 
-export default function ViewProfile({ profileEditor }) {
+export default function ViewProfile({ profileEditor, profileExists, profile }) {
     const { user, setUser } = useContext(AuthContext)
 
     return (
@@ -10,20 +11,33 @@ export default function ViewProfile({ profileEditor }) {
             {user &&
                 <>
                     <div>{user}</div>
-                    <div>Title</div>
-                    <div>Bio</div>
-                    <div>description</div>
-                    <div>location</div>
-                    <div>website</div>
+                    <div>{ profile.title }</div>
+                    <div>{ profile.bio }</div>
+                    <div>{ profile.location }</div>
+                    <div>{ profile.website }</div>
                 </>
             }
             <button
                 className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full" 
                 type="button"
                 onClick={profileEditor}
-                >Create Profile
+                >
+                {
+                profileExists ?
+                "Edit"
+                :    
+                "Create Profile"
+                }
+                    
                 </button>
             <div></div>
         </>
     )
 }
+
+ViewProfile.propTypes = {
+
+    profileEditor: PropTypes.func,
+    profileExists: PropTypes.bool
+  }
+  

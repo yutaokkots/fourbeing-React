@@ -1,26 +1,35 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import * as profileAPI from '../../utilities/profile-api'
 
 const initialState = {
+    user_id: "",
+    username: "",
     title: "",
     bio: "",
     location: "",
     website: "",
 }
 
-export default function CreateProfile( {profileEditor }) {
+export default function CreateProfile( { user, profileEditor, profileExists }) {
     const [profileInfo, setProfileInfo] = useState(initialState)
 
     function handleChange(evt) {
         setProfileInfo({ ...profileInfo, [evt.target.name]: evt.target.value });
       }
     
+    // makes a POST request to the server to create a user profile
     async function editProfile(info){
-        const profile = await profileAPI.getProfile(info)
+        
+        const profile = profileExists ? await profileAPI.editProfile(info) : await profileAPI.createProfile(info)
+        //const profile = await profileAPI.editProfile(info)
+
     }
 
+    // handleSubmit activated when form is submitted, activates 'editProfile' function above. 
     function handleSubmit(evt){
         evt.preventDefault()
+        profileInfo.username = user
         editProfile(profileInfo)
         profileEditor()
     }
@@ -58,7 +67,7 @@ export default function CreateProfile( {profileEditor }) {
                     ></input>
             </div>
             <div className='relative  flex-row justify-between'>
-                <label>Title:</label>
+                <label>Website:</label>
                 <input
                     type="text"
                     name="website"
@@ -76,3 +85,10 @@ export default function CreateProfile( {profileEditor }) {
 
   )
 }
+
+CreateProfile.propTypes = {
+    user: PropTypes.string,
+    profileEditor: PropTypes.func,
+    profileExists: PropTypes.bool
+  }
+  
