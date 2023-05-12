@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Postcard from '../../components/Postcard/Postcard'
 import { AuthContext } from '../App'
 
+
 export default function Dashboard() {
     const [allPosts, setAllPosts] = useState([""])
     const { user, setUser } = useContext(AuthContext)

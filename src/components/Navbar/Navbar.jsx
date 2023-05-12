@@ -35,11 +35,7 @@ export default function Navbar() {
                             <a className="text-gray-800 hover:text-gray-400 duration-300" 
                                 href='/'>Home</a>
                         </li>
-                        
-                        <li className="md:ml-8 text-xl">
-                            <a className="text-gray-800 hover:text-gray-400 duration-300" 
-                                href='/profile'>Profile</a>
-                        </li>
+
                         { user &&
                         <li className="md:ml-8 text-xl">
                             <a className="text-gray-800 hover:text-gray-400 duration-300" 

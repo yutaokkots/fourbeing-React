@@ -9,6 +9,7 @@ module.exports = {
         'afterhour':'#212A3E',
         'moonlight':'#F1F6F9',
         'regal': '#34172D',
+        'regallight': '#5c4556',
         'lining':'#d678a4',
 
       },       
