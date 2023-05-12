@@ -6,8 +6,9 @@ export function getPostAll(){
     return sendRequest(`${BASE_URL}`)
 }
 
-export function getPost(){
-    return sendRequest(`${BASE_URL}/:id`)
+export function getPost(postId){
+    console.log(postId)
+    return sendRequest(`${BASE_URL}/${postId}/`)
 }
 
 export function createPost(){

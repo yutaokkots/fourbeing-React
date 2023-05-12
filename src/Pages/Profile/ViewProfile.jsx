@@ -36,7 +36,7 @@ export default function ViewProfile({ profileEditor, profileExists, profile }) {
 }
 
 ViewProfile.propTypes = {
-
+    profile: PropTypes.object,
     profileEditor: PropTypes.func,
     profileExists: PropTypes.bool
   }

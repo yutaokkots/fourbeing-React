@@ -1,9 +1,10 @@
 import { useState, useEffect, useContext } from 'react'
 import * as postsAPI from '../../utilities/posts_api'
 import Navbar from '../../components/Navbar/Navbar'
-import Postcard from '../../components/Postcard/Postcard'
+import Posts from '../../components/Postcard/Posts'
 import { AuthContext } from '../App'
-
+import PropTypes from 'prop-types'
+import CommunityResources from '../../components/Community/CommunityResources'
 
 export default function Dashboard() {
     const [allPosts, setAllPosts] = useState([""])
@@ -34,14 +35,13 @@ export default function Dashboard() {
             <Navbar />
             <div  className="bg-afterhour v-screen h-screen">
                 
-            
                 <div className="mt-10 grid grid-cols-12 gap-4 px-5">
                 
                     <div className="col-span-7">
                         <div>Dashboard</div>
                         <div className="">
                             {allPosts?.map((post, idx) => 
-                                <Postcard  post={post} key={idx}/>)
+                                <Posts  post={post} id={post.id} key={idx}/>)
                             }
                         </div>
                     </div>
@@ -49,11 +49,8 @@ export default function Dashboard() {
                         <div className="">
                             <h1> second column </h1>
                         </div>
-                        {
-                        user ? <h2>The user is logged in</h2>    
-                        :
-                        <h2 className="text-red-800">The user is not set</h2>    
-                        }
+                        <CommunityResources />
+
                     </div>
                 </div>
             </div>
@@ -61,6 +58,8 @@ export default function Dashboard() {
 
     )
 }
+
+
 // 'midnight': '#091123',
 // 'afterhour':'#212A3E',
 // 'moonlight':'#F1F6F9',
