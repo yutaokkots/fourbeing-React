@@ -39,12 +39,24 @@ export default function LoginForm() {
                     <form autoComplete="off" onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between  mt-2 mb-2'>
                         <div><label>Username</label></div>
-                        <div><input className='text-cardamom' type="text" name="username" value={credentials.login} onChange={handleChange} required /></div>
+                        <div><input 
+                            className='text-cardamom' 
+                            type="text" 
+                            name="username" 
+                            value={credentials.login} 
+                            onChange={handleChange} 
+                            required /></div>
                     </div>
 
                     <div className='relative  flex-row justify-between'>
                         <div><label>Password</label></div>
-                        <div><input className='text-cardamom' type="password" name="password" value={credentials.password} onChange={handleChange} required /></div>
+                        <div><input 
+                            className='text-cardamom' 
+                            type="password" 
+                            name="password" 
+                            value={credentials.password} 
+                            onChange={handleChange} 
+                            required /></div>
                     </div>
                     <button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' type="submit">LOG IN</button>
                     </form>

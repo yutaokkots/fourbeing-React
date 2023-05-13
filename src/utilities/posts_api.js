@@ -11,16 +11,16 @@ export function getPost(postId){
     return sendRequest(`${BASE_URL}/${postId}/`)
 }
 
-export function createPost(){
-    return sendRequest(`${BASE_URL}/create/`)
+export function createPost(postContent){
+    return sendRequest(`${BASE_URL}/create/`, "POST", postContent)
 }
 
-export function deletePost(){
-    return sendRequest(`${BASE_URL}/create/`)
+export function updatePost(postContent, postId){
+    return sendRequest(`${BASE_URL}/${postId}/update/`, "PUT", postContent)
 }
 
-export function updatePost(){
-    return sendRequest(`${BASE_URL}/create/`)
+export function deletePost(postId){
+    return sendRequest(`${BASE_URL}/${postId}/create/`)
 }
 
 

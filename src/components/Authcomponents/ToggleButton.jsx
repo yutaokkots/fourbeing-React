@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 
 export default function ToggleButton({toggler, toggleState}) {
 
@@ -25,4 +25,10 @@ export default function ToggleButton({toggler, toggleState}) {
     </>
 
   )
+}
+
+
+ToggleButton.propTypes = {
+    toggler: PropTypes.func,
+    toggleState: PropTypes.number
 }

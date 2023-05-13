@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { useParams }  from 'react-router-dom'
 import * as postsAPI from '../../utilities/posts_api'
-import Navbar from '../Navbar/Navbar'
-import CommunityResources from '../Community/CommunityResources'
-import Postcard from './Postcard'
+import Navbar from '../../components/Navbar/Navbar'
+import CommunityResources from '../../components/Community/CommunityResources'
+import Postcard from '../../components/Postcard/Postcard'
+//import EditPostCard from '../../components/Postcard/EditPostCard'
 
 const initialPost = {
-    
     title : "test",
     description : "test",
     created : "date",
+    username : "test"
 }
 
 export default function Post() {
@@ -19,7 +20,6 @@ export default function Post() {
     useEffect(() => {
         async function getPost(){
             let response = await postsAPI.getPost(postId.postid)
-            console.log(response.data)
             setSinglePost(response.data)
         }
         getPost()
@@ -31,7 +31,6 @@ export default function Post() {
                 <div  className="bg-afterhour v-screen h-screen">
                     <div className="mt-10 grid grid-cols-12 gap-4 px-5">
                         <div className="col-span-7">
-                            <div>Post Here</div>
                             <div className="grid grid-col-2">
                                 <Postcard singlePost={singlePost}/>
                             </div>
@@ -41,7 +40,6 @@ export default function Post() {
                                 <h1> second column </h1>
                             </div>
                         <CommunityResources />
-
                     </div>
                     </div>
             </div>

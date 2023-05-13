@@ -17,7 +17,6 @@ export default function LoginForm() {
     const [credentials, setCredentials] = useState(initialState);
     const navigate = useNavigate()
     const { user, setUser } = useContext(AuthContext)
-
     const [error, setError] = useState('');
 
     const disable = false;

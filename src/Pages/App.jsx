@@ -5,8 +5,9 @@ import Dashboard from './Dashboard/Dashboard'
 import { useReducer, useState, createContext, useEffect } from 'react'
 import AuthPage from './AuthPage/AuthPage'
 import Profile from './Profile/Profile'
-import Post from '../components/Postcard/Post'
+import Post from '../Pages/Post/Post'
 import CreatePost from '../Pages/CreatePost/CreatePost'
+import EditPost from './EditPost/EditPost'
 
 import './App.css'
 import * as usersAPI from '../utilities/users-service'
@@ -58,9 +59,10 @@ export default function App() {
                 <Routes>
                         <Route path='/' element={<Dashboard user={ user }/>} />
                         <Route path='/login' element={<AuthPage user={ user } setUser={ setUser}/>} />
-                        <Route path='/create' element={<CreatePost user={ user } setUser={ setUser}/>} />
+                        <Route path='/createpost' element={<CreatePost user={ user } setUser={ setUser}/>} />
                         <Route path='/profile' element={<Profile user={ user } setUser={ setUser}/>} />
-                        <Route path='/fourbeing/:postid' element={<Post user={ user } setUser={ setUser}/>} />
+                        <Route path='/fourbeing/:postid' element={<Post />} />
+                        <Route path='/fourbeing/:postid/edit' element={<EditPost />} />
                 </Routes>
             </AuthContext.Provider>
         </>

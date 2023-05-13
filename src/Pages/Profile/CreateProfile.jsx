@@ -20,7 +20,6 @@ export default function CreateProfile( { user, profileEditor, profileExists }) {
     
     // makes a POST request to the server to create a user profile
     async function editProfile(info){
-        
         const profile = profileExists ? await profileAPI.editProfile(info) : await profileAPI.createProfile(info)
         //const profile = await profileAPI.editProfile(info)
 

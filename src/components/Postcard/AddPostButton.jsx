@@ -13,7 +13,7 @@ export default function AddPostButton() {
             {
             user ? 
             <Link 
-                to="/login" 
+                to="/createpost" 
                 className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full">
                     Post</Link>
 
