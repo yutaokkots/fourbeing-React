@@ -74,7 +74,7 @@ export default function CreateProfile( { user, profileEditor, profileExists }) {
                     onChange={handleChange}
                     ></input>
                 <button
-                    className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full"
+                    className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4rounded-full"
                     type="submit"
                     >submit</button>
             </div>

@@ -27,9 +27,7 @@ export default function EditPostCard() {
             }).catch((error)=>{console.log(error)})
             
         }
-
         getPost()
-        
     }, [])
 
     function handleChange(evt) {
@@ -48,7 +46,6 @@ export default function EditPostCard() {
 
     function handleSubmit(evt) {
         evt.preventDefault()
-        // let response = createPost(form)
         createPost(form).then((response) => {
             console.log(response)
             return response.id
@@ -62,9 +59,9 @@ export default function EditPostCard() {
 
     return (
         <>
-            <div className="border-2 m-1 border-zinc-400 text-moonlight p-1 rounded-md hover:text-moonlight hover:border-moonlight mt-3">
+            <div className="border-2 bg-white border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-afterhour">
                 <div className="col-span-2">
-                    Here
+                    {form.title}
                 </div>
                 <div className="col-span-10">
                 <form
@@ -73,6 +70,7 @@ export default function EditPostCard() {
                         <label>Title: </label>
                         <input 
                             type="text" 
+                            className="w-full border border-gray-300 rounded-md"
                             name="title"
                             placeholder="Title" 
                             value={form.title}
@@ -82,7 +80,7 @@ export default function EditPostCard() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>Post: </label>
                         <textarea 
-                            className="resize-x"
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md"
                             type="text" 
                             name="description" 
                             placeholder="Description"
@@ -90,18 +88,19 @@ export default function EditPostCard() {
                             value={form.description}
                             required></textarea>
                     </div>
-                    <div>
-                        <button
-                            className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full"
-                            >Submit</button>
-                    </div>
-                    <div>
+                    <div className="flex justify-end">
                         {
                             error &&
                                 <h1>{error}</h1>
                         }
                         <h1>Post as { user }</h1>
                     </div>
+                    <div className="flex justify-end">
+                        <button
+                            className="bg-regallight hover:bg-regal text-white font-bold mt-2 py-1 px-4 rounded-full"
+                            >Submit</button>
+                    </div>
+
                 </form>
                     <div className=" text-left">
 

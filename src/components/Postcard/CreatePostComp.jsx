@@ -34,6 +34,7 @@ export default function CreatePostComp() {
         evt.preventDefault()
         // let response = createPost(form)
         createPost(form).then((response) => {
+            console.log(response)
             return response.data.id
         }).then((response) => {
             navigate(`/fourbeing/${response}`)
@@ -45,14 +46,14 @@ export default function CreatePostComp() {
 
     return (
         <>
-            <div className="rounded-md m-5 bg-white text-lining">
-                <div>CreatePostComp</div>
+            <div className="border-2 border-zinc-400 rounded-md p-2 bg-white text-lining">
                 <form
                     onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>Title: </label>
                         <input 
                             type="text" 
+                            className="w-full border border-gray-300 rounded-md"
                             name="title"
                             placeholder="Title" 
                             value={form.title}
@@ -62,7 +63,7 @@ export default function CreatePostComp() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>Post: </label>
                         <textarea 
-                            className="resize-x"
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md"
                             type="text" 
                             name="description" 
                             placeholder="Description"
@@ -71,17 +72,20 @@ export default function CreatePostComp() {
                             required></textarea>
                     </div>
                     <div>
-                        <button
-                            className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full"
-                            >Submit</button>
-                    </div>
-                    <div>
                         {
                             error &&
                                 <h1>{error}</h1>
                         }
-                        <h1>Post as { user }</h1>
+                        <div className='flex justify-end'>
+                            Post as { user }
+                        </div>
                     </div>
+                    <div className="flex justify-end">
+                        <button
+                            className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
+                            >Submit</button>
+                    </div>
+
                 </form>
             </div>
         </>

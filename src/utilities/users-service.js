@@ -32,15 +32,16 @@ export function getToken(){
         localStorage.removeItem('Token');
         return null;
     }
-
     return token;
 }
 
-// getUser() -> returns token 
+
+// getUser() -> returns user
 export function getUser(){
     const token = getToken();
     return token ? JSON.parse(window.atob(token.split('.')[1])).name : null
 }
+
 
 export async function login(credentials){
     const token = await usersAPI.login(credentials);

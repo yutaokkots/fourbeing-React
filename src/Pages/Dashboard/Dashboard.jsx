@@ -38,25 +38,23 @@ export default function Dashboard() {
     return (
         <div >
             <Navbar />
-            <div  className="bg-afterhour v-screen h-screen">
+            <div  className="v-screen h-screen">
                 
-                <div className="mt-10 grid grid-cols-12 gap-4 px-5">
-                
-                    <div className="col-span-7">
-                        <div>Dashboard</div>
+                <div className="mt-20 px-5 grid gap-5  grid-cols-12 md:mt-10 md:pt-10">
+                    <div className="col-span-12  sm:col-span-5 sm:order-2">
+                        <div className="">
+                            <CommunityResources />
+                        </div>
+                    </div>
+                    <div className="col-span-12 sm:col-span-7 sm:order-1">
                         <div className="">
                             {allPosts.map((post, idx) => 
                                 <Posts  post={post} id={post.id} key={idx}/>)
                             }
                         </div>
                     </div>
-                    <div className="col-span-5">
-                        <div className="">
-                            <h1> second column </h1>
-                        </div>
-                        <CommunityResources />
 
-                    </div>
+
                 </div>
             </div>
         </div>

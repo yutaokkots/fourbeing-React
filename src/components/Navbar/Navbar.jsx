@@ -21,10 +21,14 @@ export default function Navbar() {
     return (
         <>
             <div className="nav shadow-lg w-full fixed top-0 left-0">
-                <div className="md:flex items-center justify-between bg-white py-3 md:px-10 px-7">
-                    <div className="font-bold text-2xl cursor-pointer flex items-center ">
-                    <span><a href="/" className="site-title">Site Name</a></span>
-                    <ul className="md:flex md:item-center">
+                <div className="flex items-end justify-between bg-white py-3 px-10 px-7">
+                    
+                    <div className="font-bold text-2xl cursor-pointer flex items-end ">
+                        
+                    <span><a href="/" className="site-title">fourbeing</a></span>
+                    </div>
+                    <div>
+                    <ul className="flex justify-end gap-5 content-center">
                         {/* {links.map((link, idx) => 
                         <li key={idx} className="md:ml-8 text-xl"> 
                             <a className="text-gray-800 hover:text-gray-400 duration-300" 
@@ -38,20 +42,24 @@ export default function Navbar() {
 
                         { user &&
                         <li className="md:ml-8 text-xl">
-                            <a className="text-gray-800 hover:text-gray-400 duration-300" 
+                            <a className="text-gray-800 hover:text-gray-400 text-sm duration-300" 
                                 href='/profile'>hello, {user}</a>
                         </li>
                         }   
-                        <li className="md:ml-8 text-xl">
+                        { user ?
+
+                            <li className="md:ml-8 text-xl">
+                                <a className="text-gray-800 hover:text-gray-400 duration-300" 
+                                    href='/'
+                                    onClick={ logOut }
+                                    >Logout</a>
+                            </li>
+                            :
+                            <li className="md:ml-8 text-xl">
                             <a className="text-gray-800 hover:text-gray-400 duration-300" 
                                 href='/login'>Login</a>
-                        </li>
-                        <li className="md:ml-8 text-xl">
-                            <a className="text-gray-800 hover:text-gray-400 duration-300" 
-                                href='/'
-                                onClick={ logOut }
-                                >Logout</a>
-                        </li>
+                            </li>
+                        }
                     </ul>
                     </div>
                 </div>

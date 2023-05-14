@@ -4,27 +4,34 @@ import PropTypes from 'prop-types'
 import { Link } from "react-router-dom"
 
 export default function Posts({ post, id }) {
-
+    console.log(post)
   return (
     <>
-        <div className="border-2 m-1 border-zinc-400 text-moonlight p-1 rounded-md hover:text-moonlight hover:border-moonlight mt-3">
+        <div className="border-2 mb-2 px-3 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour ">
                 <Link to={`/fourbeing/${id}`}>
-                <div className="grid grid-col-2">
-                    <div className="col-span-2">
-                        Here
-                    </div>
-                    <div className="col-span-10">
-                        <div className="text-xl text-left">
-                            <h1>{ post.title }</h1>
-                            <h1>{ post.id }</h1>
+                <div className="grid grid-cols-12 gap-3">
+
+                        <div className="col-span-1 flex justify-center items-center">
+                            Here
                         </div>
-                        <div className=" text-left">
-                            <h1>{ post.description }</h1>
+                        <div className="col-span-11">
+                            <div className="text-xl text-left">
+                                { post.title }
+                            </div>
+                            <div className=" text-left ">
+                                { post.description }
+                            </div>
+                            <div className="flex justify-end text-sm">
+                                Posted by { post.username }
+                            </div>
+                            <div className="flex justify-end">
+                                <Comments />
+                            </div>
                         </div>
-                    </div>
+
                 </div>
                 </Link>
-            <Comments />
+            
         </div>
     </>
   )

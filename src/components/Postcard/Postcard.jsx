@@ -8,26 +8,30 @@ export default function Postcard({ singlePost }) {
     const { user } = useContext(AuthContext)
     return (
         <>
-            <div className="border-2 m-1 border-zinc-400 text-moonlight p-1 rounded-md hover:text-moonlight hover:border-moonlight mt-3">
-                <div className="col-span-2">
-                    Here
-                </div>
-                <div className="col-span-10">
-                    <div className="text-xl text-left">
-                        <h1>Posted by { singlePost.username }</h1>
-                        <h1>{ singlePost.title }</h1>
-                        <h1>{ singlePost.description }</h1>
+            <div className="border-2 mb-1 p-1 border-zinc-400 text-regal  rounded-md">
+                <div className="grid grid-cols-12">
+                    <div className="col-span-1 flex items-center">
+                        <div>likes here?</div>
                     </div>
-                    {
-                    singlePost.username === user &&
-                    <Link 
-                        to={`/fourbeing/${singlePost.id}/edit`} 
-                        id={singlePost.id}
-                        >Edit 
-                    </Link>
-                    }
-                    <div className=" text-left">
+                    <div className="col-span-11">
+                        <div className="text-xl text-left">
+                            <div className="text-2xl">{ singlePost.title }</div>
+                            <div>{ singlePost.description }</div>
+                            <div className="text-sm flex justify-end">Posted by { singlePost.username }</div>
+                        </div>
+                        <div className="flex justify-end">
+                        {
+                        singlePost.username === user &&
+                        <Link 
+                            to={`/fourbeing/${singlePost.id}/edit`} 
+                            id={singlePost.id}
+                            >Edit 
+                        </Link>
+                        }
+                        </div>
+                        <div className=" text-left">
 
+                        </div>
                     </div>
                 </div>
             </div>    

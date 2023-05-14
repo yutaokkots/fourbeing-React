@@ -9,22 +9,22 @@ export default function AddPostButton() {
 
     return (
         <>
-            <div>AddPost</div>
+            <div className="p2 mt-5">
             {
             user ? 
             <Link 
                 to="/createpost" 
-                className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full">
+                className="bg-regallight btn-sm hover:bg-regal text-white font-bold py-1 px-4 rounded-full">
                     Post</Link>
 
             :
             <Link 
                 to="/login" 
-                className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full">
+                className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full">
                     Login to Post</Link>
 
             }
-
+            </div>
         </>
     )
 }

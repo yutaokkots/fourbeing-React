@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import LoginForm from '../../components/Authcomponents/LoginForm'
 import SignupForm from '../../components/Authcomponents/SignupForm'
 import ToggleButton from '../../components/Authcomponents/ToggleButton'
+import Navbar from '../../components/Navbar/Navbar'
 
 
 export default function AuthPage( { user, setUser } ) {
@@ -15,26 +16,27 @@ export default function AuthPage( { user, setUser } ) {
 
   return (
     <>
+    <Navbar />
     <div>AuthPage</div>
-    <div>
-        {
-            toggle > 0 ? (
-                <>
-                    <h1>-- loginform --</h1>
-                <LoginForm user={ user } setUser={ setUser}/>
-                </>
-            )
-                :
-                (
-                <>
-                <h1>-- logoutform --</h1>
-                <SignupForm user={ user } setUser={ setUser}/>
-                </>
+        <div className="mt-20 px-5 gap-4 ">
+            {
+                toggle > 0 ? (
+                    <>
+                        <h1>-- loginform --</h1>
+                    <LoginForm user={ user } setUser={ setUser}/>
+                    </>
                 )
-        }
-        <ToggleButton toggler={ handleToggle } toggleState={ toggle } />
-        
-    </div>
+                    :
+                    (
+                    <>
+                    <h1>-- logoutform --</h1>
+                    <SignupForm user={ user } setUser={ setUser}/>
+                    </>
+                    )
+            }
+            <ToggleButton toggler={ handleToggle } toggleState={ toggle } />
+            
+        </div>
     </>
   )
 }

@@ -8,25 +8,24 @@ export default function CreatePost() {
   return (
     <>
     <Navbar />
-        <div  className="bg-afterhour v-screen h-screen">
-            <div className="mt-10 grid grid-cols-12 gap-4 px-5">
-                <div className="col-span-7">
-                    <div>Post Here</div>
+        <div  className="bg-white v-screen h-screen">
+            <div className="mt-20 grid px-5 gap-4 grid-cols-12 md:mt-10 md:pt-10">
+                <div className="col-span-12  sm:col-span-5 sm:order-2">
+                    <div className="">
+                        <CommunityResources />
+                    </div>
+                </div>
+                <div className="col-span-12  sm:col-span-7 sm:order-1">
                     <CreatePostComp />
                 </div>
-                <div className="col-span-5">
-                    <div className="">
-                        <h1> second column </h1>
-                    </div>
-                <CommunityResources />
 
             </div>
-            </div>
-    </div>
+        </div>
 </>
   )
 }
-
+// <div className="mt-20 grid grid-cols-12 gap-4 md:mt-10 md:pt-10">
+// <div className="col-span-12 px-2 sm:col-span-5 sm:order-2">
 
 CreatePost.propTypes = {
   user: PropTypes.object

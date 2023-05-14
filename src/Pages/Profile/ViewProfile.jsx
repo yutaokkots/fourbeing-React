@@ -18,7 +18,7 @@ export default function ViewProfile({ profileEditor, profileExists, profile }) {
                 </>
             }
             <button
-                className="bg-regallight hover:bg-regal text-white font-bold py-2 px-4 rounded-full" 
+                className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full" 
                 type="button"
                 onClick={profileEditor}
                 >
