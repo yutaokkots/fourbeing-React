@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { AuthContext } from '../../Pages/App'
 import * as replyAPI from '../../utilities/reply_api'
 import EditReply from './EditReply'
-import Love from './Love'
+import LoveReply from './LoveReply'
 
 const initialReply = {
     username : "",
@@ -71,7 +71,7 @@ export default function Reply({ reply, refresh }) {
                 <div className="grid grid-cols-12">
                     <div className="col-span-1 flex flex-col justify-center items-center ">
                         <div className="text-red-600 inline-block ">
-                            <Love reply={reply} refresh={ refresh }/>
+                            <LoveReply reply={reply} refresh={ refresh }/>
                         </div>
                         <div>{reply.love}</div>
                     </div>

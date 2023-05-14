@@ -8,6 +8,7 @@ import CommunityResources from '../../components/Community/CommunityResources'
 export default function Dashboard() {
     const [allPosts, setAllPosts] = useState([""])
     const { user, setUser } = useContext(AuthContext)
+    const [updatePage, setUpdatePage] = useState(1)
 
     function sortByDate(postArray){
         return [...postArray].sort((a,b) => {  
@@ -18,6 +19,10 @@ export default function Dashboard() {
             } else {
                 return 0;
             }})
+    }
+
+    function refresh(){
+        setUpdatePage(-updatePage)
     }
 
     useEffect(() => {
@@ -31,6 +36,7 @@ export default function Dashboard() {
                     return response.data
                 }).then((response)=>{
                     setAllPosts(sortByDate(response))
+                    console.log(response)
                 }).catch(error => {
                     throw(error);
                 })
@@ -58,7 +64,7 @@ export default function Dashboard() {
                     <div className="col-span-12 sm:col-span-7 sm:order-1">
                         <div className="">
                             {allPosts.map((post, idx) => 
-                                <Posts  post={post} id={post.id} key={idx}/>)
+                                <Posts  post={post} id={post.id} key={idx} refresh={ refresh }/>)
                             }
                         </div>
                     </div>

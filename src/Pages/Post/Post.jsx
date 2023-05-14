@@ -61,7 +61,7 @@ export default function Post() {
                         </div>
                         <div className="col-span-12  sm:col-span-7 sm:order-1">
                             <div className="grid grid-col-2" >
-                                <Postcard singlePost={singlePost}/>
+                                <Postcard singlePost={singlePost} replies={replies} refresh={refresh}/>
                                 <div className="pl-5 md:pl-10"> 
                                     <RepliesAll replies={replies} refresh={refresh}/>
                                 </div>

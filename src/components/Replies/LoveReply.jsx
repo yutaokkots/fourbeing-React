@@ -4,7 +4,7 @@ import { AuthContext } from '../../Pages/App'
 import PropTypes from 'prop-types'
 // reply, refresh
 
-export default function Love({ reply, refresh }) {
+export default function LoveReply({ reply, refresh }) {
     const { user } = useContext(AuthContext)
     const [addLove, setAddLove] = useState(0)
 
@@ -33,7 +33,7 @@ export default function Love({ reply, refresh }) {
     )
 }
 
-Love.propTypes = {
+LoveReply.propTypes = {
     reply: PropTypes.object,
     refresh: PropTypes.func
 }

@@ -59,9 +59,9 @@ export default function EditPostCard() {
 
     return (
         <>
-            <div className="border-2 bg-white border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-afterhour">
+            <div className="shadow-md bg-white p-2 border-zinc-400 text-regal  rounded-md hover:text-afterhour hover:border-afterhour">
                 <div className="col-span-2">
-                    {form.title}
+                    Editing: {form.title}
                 </div>
                 <div className="col-span-10">
                 <form
@@ -70,7 +70,7 @@ export default function EditPostCard() {
                         <label>Title: </label>
                         <input 
                             type="text" 
-                            className="w-full border border-gray-300 rounded-md"
+                            className="w-full border border-gray-300 rounded-md px-2 y-2"
                             name="title"
                             placeholder="Title" 
                             value={form.title}
@@ -80,7 +80,7 @@ export default function EditPostCard() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>Post: </label>
                         <textarea 
-                            className="w-full resize-y h-auto border border-gray-300 rounded-md"
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="text" 
                             name="description" 
                             placeholder="Description"

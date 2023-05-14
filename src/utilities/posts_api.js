@@ -7,7 +7,6 @@ export function getPostAll(){
 }
 
 export function getPost(postId){
-    console.log(postId)
     return sendRequest(`${BASE_URL}/${postId}/`)
 }
 
@@ -23,11 +22,7 @@ export function deletePost(postId){
     return sendRequest(`${BASE_URL}/${postId}/create/`)
 }
 
+export function addLove (loveInfo, postId){
+    return sendRequest(`${BASE_URL}/${postId}/love/`, "PUT", loveInfo)
+}
 
-
-
-// return fetch(url, options).then((response) => {
-//     return response.json()
-// }).catch((err) => {
-//     throw new Error('Bad Request', err);
-// })

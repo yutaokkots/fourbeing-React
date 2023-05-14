@@ -27,7 +27,7 @@ export default function EditPost({id}) {
     return (
         <>
         <Navbar />
-            <div  className="bg-afterhour v-screen h-screen">
+            <div  className="bg-white v-screen h-screen">
                 <div className="mt-10 grid grid-cols-12 gap-4 px-5">
                     <div className="col-span-7">
                         <div>Post Here</div>
