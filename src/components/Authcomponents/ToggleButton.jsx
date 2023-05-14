@@ -12,14 +12,14 @@ export default function ToggleButton({toggler, toggleState}) {
     
     <>
         <div className=''>
-            <div>
+            <div className="flex flex-col items-center text-sm">
                 {toggleState < 0 ? 'Already registered?' : 'New User?'}<span> </span>
-                </div>
-                <div>
+            </div>
+            <div className="flex flex-col items-center ">
                 <button
                     className="text-land"
                     onClick={handleClick}
-                >{toggleState < 0 ? 'Log in' : 'Sign up'}</button>
+                >{toggleState < 0 ? '⬅ Log in ' : 'Sign up ➡'}</button>
             </div>
         </div>
     </>

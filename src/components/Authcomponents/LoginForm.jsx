@@ -35,12 +35,12 @@ export default function LoginForm() {
 
     return (
         <>
-            <div className="rounded-md m-5 bg-afterhour text-lining">
-                    <form autoComplete="off" onSubmit={handleSubmit}>
+            <div className="shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                <form autoComplete="off" onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between  mt-2 mb-2'>
                         <div><label>Username</label></div>
                         <div><input 
-                            className='text-cardamom' 
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="text" 
                             name="username" 
                             value={credentials.login} 
@@ -48,17 +48,22 @@ export default function LoginForm() {
                             required /></div>
                     </div>
 
-                    <div className='relative  flex-row justify-between'>
+                    <div className='relative flex-row justify-between'>
                         <div><label>Password</label></div>
                         <div><input 
-                            className='text-cardamom' 
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="password" 
                             name="password" 
                             value={credentials.password} 
                             onChange={handleChange} 
                             required /></div>
                     </div>
-                    <button className=' text-cardamom bg-vanilla hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' type="submit">LOG IN</button>
+                    <div className="flex flex-col items-center ">
+                        <button 
+                        className=' bg-moonlight hover:bg-land hover:text-vanilla py-1 px-4 rounded mt-5 mb-3'  
+                        type="submit"
+                        >Log in</button>
+                    </div>
                     </form>
 
                 <p className="error-message">&nbsp;{error}</p>

@@ -42,12 +42,12 @@ export default function LoginForm() {
 
     return (
         <>
-            <div>SignUp</div>
-            <div className="rounded-md m-5 bg-afterhour text-lining">
+            <div className="shadow-md w-9/12 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>username</label>
                         <input 
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="text" 
                             name="username" 
                             value={credentials.username}
@@ -57,6 +57,7 @@ export default function LoginForm() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>email</label>
                         <input 
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="email" 
                             name="email" 
                             value={credentials.email}
@@ -66,6 +67,7 @@ export default function LoginForm() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>password</label>
                         <input 
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="password" 
                             name="password" 
                             value={credentials.password}
@@ -75,16 +77,19 @@ export default function LoginForm() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>confirm password</label>
                         <input 
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="password" 
                             name="passwordConfirm" 
                             value={credentials.passwordConfirm}
                             onChange={handleChange}
                             required></input>
                     </div>
-                    <button className=' text-cardamom bg-moonlight hover:bg-land hover:text-vanilla py-1 px-1 rounded mt-5 mb-5' 
-                        type="submit" 
-                        
-                        >SIGN UP</button>
+                    <div className="flex flex-col items-center ">
+                        <button 
+                            className=' bg-moonlight hover:bg-land hover:text-vanilla py-1 px-4 rounded mt-5 mb-3' 
+                            type="submit" 
+                            >Sign up</button>
+                    </div>
                 </form>
 
             </div>

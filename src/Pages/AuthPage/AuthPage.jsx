@@ -18,19 +18,17 @@ export default function AuthPage( { user, setUser } ) {
     <>
     <Navbar />
     <div>AuthPage</div>
-        <div className="mt-20 px-5 gap-4 ">
+        <div className="mt-20 gap-5 flex flex-col items-center ">
             {
                 toggle > 0 ? (
                     <>
-                        <h1>-- loginform --</h1>
-                    <LoginForm user={ user } setUser={ setUser}/>
+                        <LoginForm user={ user } setUser={ setUser}/>
                     </>
                 )
                     :
                     (
                     <>
-                    <h1>-- logoutform --</h1>
-                    <SignupForm user={ user } setUser={ setUser}/>
+                        <SignupForm user={ user } setUser={ setUser}/>
                     </>
                     )
             }
