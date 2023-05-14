@@ -34,7 +34,7 @@ export default function RepliesAll({ replies, refresh }) {
                         }
                     </div>
                 <div>{replies.map((reply, idx) => 
-                    <Reply key={idx} reply={reply}/> )}
+                    <Reply key={idx} reply={reply} refresh={ refresh }/> )}
                 </div>
             </div>    
         </>
