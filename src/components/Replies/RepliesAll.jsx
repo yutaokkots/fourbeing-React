@@ -20,22 +20,36 @@ export default function RepliesAll({ replies, refresh }) {
 
     return (
         <>
-            <div className="border-2 m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">
-                <div>
-                    <div className="flex justify-end pt-1 pr-2">
-                        {user && 
-                            <button
-                                className=""
-                                onClick={addCommentToggler}
-                                >Add a comment</button>
-                        }</div>
-                        {showAddReply && 
-                            <CreateReplyComp addCommentToggler={ addCommentToggler} refresh={ refresh }/>
-                        }
-                    </div>
-                <div>{replies.map((reply, idx) => 
-                    <Reply key={idx} reply={reply} refresh={ refresh }/> )}
+            <div className="shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">        
+                <div className="flex justify-end pt-1 pr-2">
+                    {user && 
+                        <button
+                            className=""
+                            onClick={addCommentToggler}
+                            >Add a comment</button>
+                    }
                 </div>
+                <div>
+                    {showAddReply && 
+                        <CreateReplyComp addCommentToggler={ addCommentToggler} refresh={ refresh }/>
+                    }
+                </div>
+            </div>
+            <div className="shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">
+                                
+                {
+                    replies.length === 0 ?
+                        <div className="flex flex-col py-5 justify-center items-center ">
+                            <h1>No comments yet</h1>
+                        </div>
+                    :
+                    <>
+                        <div>{replies.map((reply, idx) => 
+                            <Reply key={idx} reply={reply} refresh={ refresh }/> )
+                            }
+                        </div>
+                    </>
+                }
             </div>    
         </>
     )

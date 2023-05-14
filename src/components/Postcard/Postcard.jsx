@@ -8,7 +8,7 @@ export default function Postcard({ singlePost }) {
     const { user } = useContext(AuthContext)
     return (
         <>
-            <div className="border-2 mb-1 p-1 border-zinc-400 text-regal  rounded-md">
+            <div className="shadow-md mb-1 p-1 border-zinc-400 text-regal  rounded-md">
                 <div className="grid grid-cols-12">
                     <div className="col-span-1 flex items-center">
                         <div>likes here?</div>

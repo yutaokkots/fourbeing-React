@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react'
 import PropTypes from 'prop-types'
 import { AuthContext } from '../../Pages/App'
-import CreateReplyComp from './CreateReplyComp'
 import * as replyAPI from '../../utilities/reply_api'
 import EditReply from './EditReply'
+import Love from './Love'
 
 const initialReply = {
-    username : "test",
-    comment: "test",
+    username : "",
+    comment: "",
     post: null,
     id: null
 }
@@ -67,11 +67,13 @@ export default function Reply({ reply, refresh }) {
 
     return (
     <>
-            <div className="border-2 ml-1 mr-1 border-zinc-400 regal p-1 rounded-md hover:text-afterhour hover:border-afterhour mt-3">
+            <div className="shadow-inner ml-1 mr-1 border-zinc-400 regal p-1 rounded-md hover:text-afterhour hover:border-afterhour mt-3">
                 <div className="grid grid-cols-12">
-                    
-                    <div className="col-span-1 flex items-center">
-                        <div>Likes {reply.love}</div>
+                    <div className="col-span-1 flex flex-col justify-center items-center ">
+                        <div className="text-red-600 inline-block ">
+                            <Love reply={reply} refresh={ refresh }/>
+                        </div>
+                        <div>{reply.love}</div>
                     </div>
                     <div className="col-span-11 pr-2">
                         <div className="">
@@ -87,7 +89,7 @@ export default function Reply({ reply, refresh }) {
                                     <div>by {reply.username}</div>
                                 </div>  
                                 <div className="">
- 
+
                                 </div>
                             </div>
                         </div>
@@ -161,7 +163,6 @@ export default function Reply({ reply, refresh }) {
                     </div>
                 </div>
             </div>    
-            
         </>
     )
 }

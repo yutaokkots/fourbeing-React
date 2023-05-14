@@ -6,8 +6,8 @@ import * as userService from '../../utilities/users-service'
 import PropType from 'prop-types'
 
 const initialReply = {
-    username : "test",
-    comment: "test",
+    username : "",
+    comment: "",
     profile: null,
     post: null,
 }

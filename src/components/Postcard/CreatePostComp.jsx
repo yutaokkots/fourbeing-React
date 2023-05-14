@@ -46,14 +46,14 @@ export default function CreatePostComp() {
 
     return (
         <>
-            <div className="border-2 border-zinc-400 rounded-md p-2 bg-white text-lining">
+            <div className="shadow-md border-zinc-400 rounded-md p-2 bg-white text-lining">
                 <form
                     onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>Title: </label>
                         <input 
                             type="text" 
-                            className="w-full border border-gray-300 rounded-md"
+                            className="w-full border border-gray-300 rounded-md px-2 y-2"
                             name="title"
                             placeholder="Title" 
                             value={form.title}
@@ -63,7 +63,7 @@ export default function CreatePostComp() {
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>Post: </label>
                         <textarea 
-                            className="w-full resize-y h-auto border border-gray-300 rounded-md"
+                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                             type="text" 
                             name="description" 
                             placeholder="Description"

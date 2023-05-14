@@ -8,7 +8,7 @@ export default function CommunityResources() {
 
     return (
         <>
-            <div className="border-2 border-zinc-400 bg-white text-regal p-5 mb-5 rounded-md hover:text-afterhour hover:border-afterhour">
+            <div className=" shadow-lg border-zinc-400 bg-white text-regal p-5 mb-5 rounded-md hover:text-afterhour hover:border-afterhour">
               <div>CommunityResources</div>
                   <CommunityInfo />
               <div className="flex justify-end">

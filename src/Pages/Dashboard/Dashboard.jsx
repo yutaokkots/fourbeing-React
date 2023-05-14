@@ -9,13 +9,28 @@ export default function Dashboard() {
     const [allPosts, setAllPosts] = useState([""])
     const { user, setUser } = useContext(AuthContext)
 
+    function sortByDate(postArray){
+        return [...postArray].sort((a,b) => {  
+            if (a.created > b.created) {
+                return -1;
+            } else if (b.created < a.created) {
+                return 1;
+            } else {
+                return 0;
+            }})
+    }
+
     useEffect(() => {
+
         async function getPosts(){
             try{
                 postsAPI.getPostAll().then((response) => {
                     return response
                 }).then((response)=>{
                     setAllPosts(response.data)
+                    return response.data
+                }).then((response)=>{
+                    setAllPosts(sortByDate(response))
                 }).catch(error => {
                     throw(error);
                 })
@@ -24,15 +39,9 @@ export default function Dashboard() {
                 console.log('err', err)
             }}
         getPosts()
-        let descendingSorted = [...allPosts].sort((a,b) => {  
-            if (a.created > b.created) {
-                return -1;
-            } else if (b.created < a.created) {
-                return 1;
-            } else {
-                return 0;
-            }})
-        setAllPosts(descendingSorted)
+
+        console.log(allPosts)
+        //setAllPosts(descendingSorted)
     }, [])
 
     return (
@@ -40,7 +49,7 @@ export default function Dashboard() {
             <Navbar />
             <div  className="v-screen h-screen">
                 
-                <div className="mt-20 px-5 grid gap-5  grid-cols-12 md:mt-10 md:pt-10">
+                <div className="mt-20 px-5 grid gap-5 grid-cols-12 md:mt-10 md:pt-10">
                     <div className="col-span-12  sm:col-span-5 sm:order-2">
                         <div className="">
                             <CommunityResources />

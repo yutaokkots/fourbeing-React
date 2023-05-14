@@ -9,19 +9,19 @@ import RepliesAll from '../../components/Replies/RepliesAll'
 //import EditPostCard from '../../components/Postcard/EditPostCard'
 
 const initialPost = {
-    title : "test",
-    description : "test",
-    created : "date",
-    username : "test"
+    title : "",
+    description : "",
+    created : "",
+    username : ""
 }
 
 const initialReply = [{
-    username : "test",
-    comment: "test",
+    username : "",
+    comment: "",
     love: 0,
     profile: null,
     post: null,
-    created : "date",
+    created : "",
 }]
 
 
