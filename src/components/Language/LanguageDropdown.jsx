@@ -45,6 +45,9 @@ const languages = [
     }, 
     {code:"de",
         language:"German"
+    },
+    {code:"my",
+        language:"Burmese"
     }
 ]
 
