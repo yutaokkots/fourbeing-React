@@ -49,7 +49,7 @@ export default function Dashboard() {
     return (
         <div >
             <Navbar />
-            <div  className="v-screen h-screen">
+            <div  className= "bg-slate-50 ">
                 
                 <div className="mt-20 px-5 grid gap-5 grid-cols-12 md:mt-10 md:pt-10">
                     <div className="col-span-12  sm:col-span-5 sm:order-2">

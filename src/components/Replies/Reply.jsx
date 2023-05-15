@@ -67,7 +67,7 @@ export default function Reply({ reply, refresh }) {
 
     return (
     <>
-            <div className="shadow-inner ml-1 mr-1 border-zinc-400 regal p-1 rounded-md hover:text-afterhour hover:border-afterhour mt-3">
+            <div className="bg-white shadow-inner ml-1 mr-1 border-zinc-400 regal p-1 rounded-md hover:text-afterhour hover:border-afterhour mt-3">
                 <div className="grid grid-cols-12">
                     <div className="col-span-1 flex flex-col justify-center items-center ">
                         <div className="text-red-600 inline-block ">

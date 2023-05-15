@@ -15,12 +15,11 @@ export default function RepliesAll({ replies, refresh }) {
     // hides or reveals the comment add area
     function addCommentToggler(){
         setShowAddReply(!showAddReply)
-        console.log(showAddReply)
     }
 
     return (
         <>
-            <div className="shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">        
+            <div className="bg-white shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">        
                 <div className="flex justify-end pt-1 pr-2">
                     {user && 
                         <button
@@ -35,7 +34,7 @@ export default function RepliesAll({ replies, refresh }) {
                     }
                 </div>
             </div>
-            <div className="shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">
+            <div className="bg-white shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">
         
                 {
                     replies.length === 0 ?

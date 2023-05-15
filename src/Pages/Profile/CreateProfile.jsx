@@ -61,7 +61,7 @@ export default function CreateProfile( { user, profile, profileEditor, profileEx
         <form
             onSubmit={handleSubmit}>
             <div className='relative  flex-row justify-between'>
-                <label>Title:</label>
+                <label>Msg:</label>
                 <input
                     className="w-full border border-gray-300 rounded-md px-2 y-2"
                     type="text"

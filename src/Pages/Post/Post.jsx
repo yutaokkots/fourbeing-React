@@ -7,6 +7,7 @@ import Postcard from '../../components/Postcard/Postcard'
 import * as replyAPI from '../../utilities/reply_api'
 import RepliesAll from '../../components/Replies/RepliesAll'
 import LanguageTranslator from '../../components/Language/LanguageTranslator'
+
 //import EditPostCard from '../../components/Postcard/EditPostCard'
 
 const initialPost = {
@@ -36,40 +37,50 @@ export default function Post() {
         setUpdatePage(-updatePage)
     }
 
-    // function sortByDate(postArray){
-    //     return [...postArray].sort((a,b) => {  
-    //         if (a.created > b.created) {
-    //             return -1;
-    //         } else if (b.created < a.created) {
-    //             return 1;
-    //         } else {
-    //             return 0;
-    //         }})
-    // }
+    function sortByDate(commentArray){
+        return [...commentArray].sort((a,b) => {  
+            if (a.created > b.created) {
+                return -1;
+            } else if (b.created < a.created) {
+                return 1;
+            } else {
+                return 0;
+            }})
+    }
 
     // retreives all of the posts and replies for a specific post
     useEffect(() => {
         async function getPost(){
-            await postsAPI.getPost(postId.postid).then((response)=>{
+            await postsAPI.getPost(postId.postid)
+            .then((response)=>{
+                console.log(response.data)
                 setSinglePost(response.data)
-            }) 
-            await replyAPI.getReply(postId.postid).then((response) => {
+            }).catch(error => {
+                throw(error);
+            })
+
+            await replyAPI.getReply(postId.postid)
+            .then((response) => {
                 setReplies(response.data)
+                return response
+            }).then((response)=>{
+                setReplies(sortByDate(response.data))
+
+            }).catch(error => {
+                throw(error);
             })
         }
         getPost()
-        console.log(replies)
     }, [updatePage])
 
 
     return (
         <>
             <Navbar />
-                <div  className=" v-screen">
+                <div  className=" bg-slate-50 ">
                     <div className="mt-20 grid gap-5 grid-cols-12 px-5 md:mt-10 md:pt-10">
                         <div className="col-span-12 sm:col-span-5 sm:order-2">
                             <div className="">
-                                <CommunityResources />
                                 <LanguageTranslator />
                             </div>
                         </div>

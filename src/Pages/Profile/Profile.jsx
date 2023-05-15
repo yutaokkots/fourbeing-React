@@ -47,7 +47,7 @@ export default function Profile() {
             <div>
                 <Navbar/>
                 <div className="mt-20 gap-5 flex flex-col items-center ">
-                    <div className="shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                    <div className="bg-white shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                             { editProfile ?
                             <CreateProfile 
                                 user={user}
