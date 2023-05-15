@@ -11,36 +11,54 @@ const initialState = {
     website: "",
 }
 
-export default function CreateProfile( { user, profileEditor, profileExists }) {
+export default function CreateProfile( { user, profileEditor, profileExists, setProfile }) {
     const [profileInfo, setProfileInfo] = useState(initialState)
-
+    const [error, setError] = useState('');
+    
     function handleChange(evt) {
         setProfileInfo({ ...profileInfo, [evt.target.name]: evt.target.value });
       }
     
     // makes a POST request to the server to create a user profile
     async function editProfile(info){
-        const profile = profileExists ? await profileAPI.editProfile(info) : await profileAPI.createProfile(info)
-        //const profile = await profileAPI.editProfile(info)
+        if (profileExists) {
+            await profileAPI.editProfile(info)
+                .then((response)=>{
+                    setProfile(response)
+                    profileEditor()
+                }).catch((error) => {
+                    console.log(error)
+                    setError("There was an error")
+                })
+        } else
+            await profileAPI.createProfile(info)
+                .then((response)=>{
+                    setProfile(response)
+                    profileEditor()
+                })
+                .catch((error) => {
+                    console.log(error)
+                    setError("There was an error")
+                })
+        }
 
-    }
 
     // handleSubmit activated when form is submitted, activates 'editProfile' function above. 
     function handleSubmit(evt){
         evt.preventDefault()
         profileInfo.username = user
         editProfile(profileInfo)
-        profileEditor()
     }
 
     return (
     <>    
-        <div>CreateProfile</div>
+        <div className="flex flex-col items-center">Create Profile</div>
         <form
             onSubmit={handleSubmit}>
             <div className='relative  flex-row justify-between'>
                 <label>Title:</label>
                 <input
+                    className="w-full border border-gray-300 rounded-md px-2 y-2"
                     type="text"
                     name="title"
                     value={ profileInfo.title }
@@ -49,16 +67,18 @@ export default function CreateProfile( { user, profileEditor, profileExists }) {
             </div>
             <div className='relative  flex-row justify-between'>
                 <label>Bio:</label>
-                <input
+                <textarea
+                    className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
                     type="text"
                     name="bio"
                     value={ profileInfo.bio }
                     onChange={handleChange}
-                    ></input>
+                    ></textarea>
             </div>
             <div className='relative  flex-row justify-between'>
                 <label>Location:</label>
                 <input
+                    className="w-full border border-gray-300 rounded-md px-2 y-2"
                     type="text"
                     name="location"
                     value={ profileInfo.location }
@@ -68,15 +88,22 @@ export default function CreateProfile( { user, profileEditor, profileExists }) {
             <div className='relative  flex-row justify-between'>
                 <label>Website:</label>
                 <input
+                    className="w-full border border-gray-300 rounded-md px-2 y-2"
                     type="text"
                     name="website"
                     value={ profileInfo.website }
                     onChange={handleChange}
                     ></input>
-                <button
-                    className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4rounded-full"
-                    type="submit"
-                    >submit</button>
+                <div
+                    className="pt-4 flex flex-col items-center">
+                    <div>
+                        {(error === "There was an error") && "There was an error"}
+                    </div>
+                    <button
+                        className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
+                        type="submit"
+                        >submit</button>
+                </div>
             </div>
 
         </form>
@@ -88,6 +115,7 @@ export default function CreateProfile( { user, profileEditor, profileExists }) {
 CreateProfile.propTypes = {
     user: PropTypes.string,
     profileEditor: PropTypes.func,
-    profileExists: PropTypes.bool
+    profileExists: PropTypes.bool,
+    setProfile: PropTypes.func
   }
   

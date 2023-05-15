@@ -13,45 +13,6 @@ export default function LanguageComp() {
     const [error, setError] = useState('');
     const [change, setChange] = useState(1)
 
-
-    // async function translate(content){
-    //     try {
-    //         const response = await translateAPI.translate(content);
-    //         if (response.message === "success") {
-    //             setWaiting(false);
-    //             setPromptReturn(response.text);
-    //             console.log(response.text);
-    //             return "success";
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //         setError("There was an error");
-    //         setWaiting(false);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     if (promptReturn !== "") {
-    //         setChange(-change);
-    //         console.log(promptReturn);
-    //     }
-    // }, [promptReturn]);
-
-    // function submitTranslation(){
-    //     setError("");
-    //     if (!promptRequest) {
-    //         setError("There was an error");
-    //     } else {
-    //         const translationPrompt = {
-    //             prompt: promptRequest,
-    //             language: promptLanguage.code
-    //         }
-    //         setWaiting(true);
-    //         translate(translationPrompt);
-    //         console.log(promptReturn);
-    //     }
-    // }
-
     useEffect(()=>{
 
     }, [waiting, promptReturn, change])

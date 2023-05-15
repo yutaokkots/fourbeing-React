@@ -23,18 +23,17 @@ export default function Profile() {
     // if no user profile exists, the profileExists state is set to false
     useEffect(()=>{
         async function getProfile(){
-            const profile = await profileAPI.getProfile()
-            
+            const profile = await profileAPI.getProfile()      
+            console.log(profile)   
             if (profile.profile === "None"){
                 setProfileExists(false)
             } else if (profile.profile !== "None") {
                 setProfile(profile.profile)
                 setProfileExists(true)
-                console.log(profile.profile)
             }
         }
         getProfile()
-    },[])
+    },[editProfile])
 
     // toggles between showing the profile and editing the profile. 
     function profileEditor(){
@@ -45,14 +44,14 @@ export default function Profile() {
         <>
             <div>
                 <Navbar/>
-                <div className="mt-16">
-                    <div className="grid grid-cols-7 gap-5">
-                        <div className='flex flex-col bg-moonlight col-start-2 col-span-2 items-center'>
+                <div className="mt-20 gap-5 flex flex-col items-center ">
+                <div className="shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                             { editProfile ?
                             <CreateProfile 
                                 user={user}
                                 profileEditor={ profileEditor } 
-                                profileExists={ profileExists } />
+                                profileExists={ profileExists }
+                                setProfile={setProfile} />
                             :
                             <ViewProfile 
                                 profile={ profile }
@@ -61,18 +60,8 @@ export default function Profile() {
                             }
                         </div>
 
-                        <div className='bg-regal col-start-4 col-span-3'>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </>
     )
 }
-// 'midnight': '#091123',
-// 'afterhour':'#212A3E',
-// 'moonlight':'#F1F6F9',
-// 'regal': '#34172D',
-// 'regallight': '#5c4556',
-// 'lining':'#d678a4',
