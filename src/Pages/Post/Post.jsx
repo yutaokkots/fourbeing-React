@@ -53,7 +53,6 @@ export default function Post() {
         async function getPost(){
             await postsAPI.getPost(postId.postid)
             .then((response)=>{
-                console.log(response.data)
                 setSinglePost(response.data)
             }).catch(error => {
                 throw(error);

@@ -26,7 +26,6 @@ export default function Profile() {
     useEffect(()=>{
         async function getProfile(){
             const profile = await profileAPI.getProfile()      
-            console.log(profile)   
             if (profile.profile === "None"){
                 setProfileExists(false)
             } else if (profile.profile !== "None") {

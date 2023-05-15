@@ -19,7 +19,6 @@ export default function LovePost({ post, refresh }) {
             post: post.id,
             love: addLove
         }
-        console.log(post.username)
         addLoveRequest(requestObject, post.id)
         refresh()
     }

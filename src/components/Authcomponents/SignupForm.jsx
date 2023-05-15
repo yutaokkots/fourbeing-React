@@ -26,10 +26,8 @@ export default function LoginForm() {
     // handlesubmit() -> invokes signUp() function 
     async function handleSubmit(evt){
         evt.preventDefault();
-        console.log("submitted")
-        await userService.signUp(credentials).then((response) => {
-            console.log(response)
-        }).then((response) => {
+        await userService.signUp(credentials).
+        then((response) => {
             setUser(response)
             setUser(userService.getUser)
         }).then(()=>{

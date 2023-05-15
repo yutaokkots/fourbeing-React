@@ -47,7 +47,6 @@ export default function EditPostCard() {
     function handleSubmit(evt) {
         evt.preventDefault()
         createPost(form).then((response) => {
-            console.log(response)
             return response.id
         }).then((response) => {
             navigate(`/fourbeing/${response}`)

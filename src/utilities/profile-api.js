@@ -19,6 +19,5 @@ export function editProfile(userData){
 }
 
 export function getUserProfile(id){
-    console.log(id)
     return sendRequest(`${BASE_URL}/${id}/`)
 }

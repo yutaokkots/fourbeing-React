@@ -29,7 +29,6 @@ export default function UserProfile() {
                 setProfile(profile.profile)
                 setProfileExists(true)
             }
-            console.log(profile)
         }
         getProfile()
     },[])

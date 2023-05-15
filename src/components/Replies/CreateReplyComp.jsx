@@ -41,7 +41,6 @@ export default function CreateReplyComp({ addCommentToggler, refresh }) {
             post: postId.postid,
         }
         createReply(reply).then((response) => {
-            console.log(response)
             return response.id
         }).then((response) => {
             addCommentToggler()
