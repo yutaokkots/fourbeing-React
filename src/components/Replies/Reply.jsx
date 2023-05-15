@@ -76,13 +76,13 @@ export default function Reply({ reply, refresh }) {
                         <div>{reply.love}</div>
                     </div>
                     <div className="col-span-11 pr-2">
-                        <div className="">
+                        <div className="pt-2 pl-2">
                             <div className="grid grid-flow-rows auto-rows-max">
                                 {
                                     beingEdited ? 
                                         <EditReply reply={reply} setEditedComment={setEditedComment}/>
                                         : 
-                                        <div className="text-lg">{reply.comment}</div>
+                                        <div className="text-md">{reply.comment}</div>
                                 }
                                 <div className="flex justify-end text-sm">
                                     

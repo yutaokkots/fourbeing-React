@@ -68,15 +68,12 @@ export default function LanguageDropdown({setPromptLanguage}) {
                 >
                 <option>Select</option>
                 {
-                    languages.map((language, idx) => 
-                        <>
-                            
+                    languages.map((language, idx) =>                 
                             <option                 
                                 name={language.code}
                                 value={`${language.code}: ${language.language}`}
-                                id={idx}
+                                key={idx}
                                 >{language.language}</option>
-                        </>
                     )
                 }
                 </select>

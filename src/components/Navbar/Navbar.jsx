@@ -29,7 +29,7 @@ export default function Navbar() {
     return (
         <>
             <div className="nav shadow-lg w-full fixed top-0 left-0">
-                <div className="flex  items-center justify-between bg-white py-3 px-10 px-7">
+                <div className="flex  items-center justify-between bg-white py-2 px-10">
                     
                     <div className="font-bold text-2xl cursor-pointer flex items-end ">
                         <a href="/" >
@@ -43,20 +43,20 @@ export default function Navbar() {
                     <div className="items-end">
                         <div>
                             <ul className="flex justify-end gap-5 content-center">
-                                <li className="md:ml-8 text-xl">
+                                <li className="md:ml-8 py-0 text-xl">
                                     <a className="text-gray-800 hover:text-gray-400 duration-300" 
                                         href='/'>Home</a>
                                 </li>
                                 { user ?
 
-                                    <li className="md:ml-8 text-xl">
+                                    <li className="md:ml-8 py-0  text-xl">
                                         <a className="text-gray-800 hover:text-gray-400 duration-300" 
                                             href='/'
                                             onClick={ logOut }
                                             >Logout</a>
                                     </li>
                                     :
-                                    <li className="md:ml-8 text-xl">
+                                    <li className="md:ml-8  py-0  text-xl">
                                     <a className="text-gray-800 hover:text-gray-400 duration-300" 
                                         href='/login'>Login</a>
                                     </li>

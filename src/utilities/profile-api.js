@@ -3,9 +3,8 @@ import * as usersService from './users-service'
 
 const BASE_URL = '/api/auth/user/profile'
 
-export function getProfile(userData){
+export function getProfile(){
     const id = usersService.getUserId()
-    console.log(id)
     return sendRequest(`${BASE_URL}/${id}/`)
 }
 
@@ -19,3 +18,7 @@ export function editProfile(userData){
     return sendRequest(`${BASE_URL}/${id}/edit/`, "PUT", userData)
 }
 
+export function getUserProfile(id){
+    console.log(id)
+    return sendRequest(`${BASE_URL}/${id}/`)
+}

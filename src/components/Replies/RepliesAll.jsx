@@ -36,7 +36,7 @@ export default function RepliesAll({ replies, refresh }) {
                 </div>
             </div>
             <div className="shadow-md m-1 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour hover:border-aftehour mt-3">
-                                
+        
                 {
                     replies.length === 0 ?
                         <div className="flex flex-col py-5 justify-center items-center ">

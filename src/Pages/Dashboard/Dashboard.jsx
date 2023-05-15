@@ -27,7 +27,6 @@ export default function Dashboard() {
     }
 
     useEffect(() => {
-
         async function getPosts(){
             try{
                 postsAPI.getPostAll().then((response) => {
@@ -37,7 +36,6 @@ export default function Dashboard() {
                     return response.data
                 }).then((response)=>{
                     setAllPosts(sortByDate(response))
-                    console.log(response)
                 }).catch(error => {
                     throw(error);
                 })
@@ -46,9 +44,6 @@ export default function Dashboard() {
                 console.log('err', err)
             }}
         getPosts()
-
-        console.log(allPosts)
-        //setAllPosts(descendingSorted)
     }, [])
 
     return (
@@ -63,7 +58,7 @@ export default function Dashboard() {
                             <LanguageTranslator />
                         </div>
                     </div>
-                    <div className="col-span-12 sm:col-span-7 sm:order-1">
+                    <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
                         <div className="">
                             {allPosts.map((post, idx) => 
                                 <Posts  post={post} id={post.id} key={idx} refresh={ refresh }/>)
@@ -78,11 +73,3 @@ export default function Dashboard() {
 
     )
 }
-
-
-// 'midnight': '#091123',
-// 'afterhour':'#212A3E',
-// 'moonlight':'#F1F6F9',
-// 'regal': '#34172D',
-// 'lining':'#d678a4',
-

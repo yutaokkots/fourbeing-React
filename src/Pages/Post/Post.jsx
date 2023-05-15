@@ -25,7 +25,6 @@ const initialReply = [{
     created : "",
 }]
 
-
 export default function Post() {
     const postId = useParams()
     const [singlePost, setSinglePost] = useState(initialPost)
@@ -36,6 +35,17 @@ export default function Post() {
     function refresh(){
         setUpdatePage(-updatePage)
     }
+
+    // function sortByDate(postArray){
+    //     return [...postArray].sort((a,b) => {  
+    //         if (a.created > b.created) {
+    //             return -1;
+    //         } else if (b.created < a.created) {
+    //             return 1;
+    //         } else {
+    //             return 0;
+    //         }})
+    // }
 
     // retreives all of the posts and replies for a specific post
     useEffect(() => {
@@ -48,7 +58,9 @@ export default function Post() {
             })
         }
         getPost()
+        console.log(replies)
     }, [updatePage])
+
 
     return (
         <>
@@ -61,7 +73,7 @@ export default function Post() {
                                 <LanguageTranslator />
                             </div>
                         </div>
-                        <div className="col-span-12  sm:col-span-7 sm:order-1">
+                        <div className="col-span-12  sm:col-span-7 sm:order-1 mb-20">
                             <div className="grid grid-col-2" >
                                 <Postcard singlePost={singlePost} replies={replies} refresh={refresh}/>
                                 <div className="pl-5 md:pl-10"> 

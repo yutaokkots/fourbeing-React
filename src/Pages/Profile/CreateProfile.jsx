@@ -11,8 +11,8 @@ const initialState = {
     website: "",
 }
 
-export default function CreateProfile( { user, profileEditor, profileExists, setProfile }) {
-    const [profileInfo, setProfileInfo] = useState(initialState)
+export default function CreateProfile( { user, profile, profileEditor, profileExists, setProfile, setEditProfile }) {
+    const [profileInfo, setProfileInfo] = useState(profile)
     const [error, setError] = useState('');
     
     function handleChange(evt) {
@@ -48,6 +48,11 @@ export default function CreateProfile( { user, profileEditor, profileExists, set
         evt.preventDefault()
         profileInfo.username = user
         editProfile(profileInfo)
+    }
+
+    // makes the "editProfile" state false to go back to the previous screen
+    function handleClick(){
+        setEditProfile(false)
     }
 
     return (
@@ -99,10 +104,20 @@ export default function CreateProfile( { user, profileEditor, profileExists, set
                     <div>
                         {(error === "There was an error") && "There was an error"}
                     </div>
-                    <button
-                        className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
-                        type="submit"
-                        >submit</button>
+                    <div>
+                        
+                        <button
+                            className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
+                            type="submit"
+                            >submit</button>
+                    </div>
+                    <div>
+                        <button
+                            className=""
+                            onClick={handleClick}>
+                            ⬅ Go back
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -114,8 +129,10 @@ export default function CreateProfile( { user, profileEditor, profileExists, set
 
 CreateProfile.propTypes = {
     user: PropTypes.string,
+    profile: PropTypes.obj,
     profileEditor: PropTypes.func,
     profileExists: PropTypes.bool,
-    setProfile: PropTypes.func
+    setProfile: PropTypes.func,
+    setEditProfile: PropTypes.func
   }
   

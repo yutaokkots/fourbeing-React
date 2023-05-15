@@ -12,6 +12,7 @@ export default function LanguageComp() {
     const [waiting, setWaiting] = useState(false)
     const [error, setError] = useState('');
     const [change, setChange] = useState(1)
+    const [hide, setHide] = useState(true)
 
     useEffect(()=>{
 
@@ -34,10 +35,6 @@ export default function LanguageComp() {
                 setWaiting(false)
             })
         setPromptReturn(translation)
-        console.log(translation)
-        console.log(promptReturn)
-
-
     }
 
     function submitTranslation(){
@@ -51,15 +48,27 @@ export default function LanguageComp() {
             }
             setWaiting(true)
             translate(translationPrompt)
-            console.log(promptReturn)
-
         }
         setChange(-change)
+    }
+
+    function setShowHide(){
+        setHide(!hide)
     }
 
     return (
         <>
             <div >
+                <div className="flex flex-col items-end">
+                    <button
+                        onClick={setShowHide}
+                        >
+                        {hide ? "Use translator" : "Hide translator" }
+                    </button>
+                </div>
+                {hide ? 
+                <></>
+                :
                 <div
                     className="gap-5">
                         <div className="py-2">
@@ -82,6 +91,7 @@ export default function LanguageComp() {
                             <LanguageOutput promptReturn={ promptReturn } change={ change } />
                         </div>
                 </div>
+                }
 
             </div>
         </>

@@ -25,6 +25,6 @@ export default function LanguageOutput({ promptReturn, change }) {
 }
 
 LanguageOutput.propTypes = {
-    promptReturn: PropTypes.object,
+    promptReturn: PropTypes.string,
     change: PropTypes.number
 }

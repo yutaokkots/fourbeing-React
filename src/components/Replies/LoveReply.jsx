@@ -8,10 +8,10 @@ export default function LoveReply({ reply, refresh }) {
     const { user } = useContext(AuthContext)
     const [addLove, setAddLove] = useState(0)
 
-
     async function addLoveRequest(request, replyPost, replyId){
         await replyAPI.addLove(request, replyPost, replyId)
     }
+    
     function handleClick(){
         setAddLove(+1)
         const requestObject = {
@@ -19,7 +19,6 @@ export default function LoveReply({ reply, refresh }) {
             id: reply.id,
             love: addLove
         }
-        console.log(reply.username)
         addLoveRequest(requestObject, reply.post, reply.id)
         refresh()
     }
