@@ -85,7 +85,6 @@ export default function LanguageComp() {
                                 "There was an error"
                             }
                         </div>
-
                         <div 
                             className="pb-2 ">
                             <LanguageOutput promptReturn={ promptReturn } change={ change } />

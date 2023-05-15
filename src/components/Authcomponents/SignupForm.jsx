@@ -27,10 +27,6 @@ export default function LoginForm() {
         evt.preventDefault();
         await userService.signUp(credentials).
         then((response) => {
-            if (!response.ok || response.status == 400){
-                setError("There was an error")
-                throw new Error("There was an error")
-            }
             setUser(response)
             setUser(userService.getUser)
         }).then(()=>{
