@@ -28,7 +28,7 @@ export default function LovePost({ post, refresh }) {
             type="button"
             name="love"
             onClick={handleClick}
-            >{post.love === 0 ? "🤍" : "🩶"} {post.user}</button>
+            >{post.love === 0 ? "🤍" : "🤍"} {post.user}</button>
     )
 }
 

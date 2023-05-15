@@ -15,10 +15,10 @@ export default function AuthPage( { user, setUser } ) {
     }
 
   return (
-    <>
+    <><div className="bg-gradient-to-b h-screen from-pink-100 via-slate-50 to-transparent">
     <Navbar />
     <div>AuthPage</div>
-        <div className="mt-20 gap-5 flex flex-col items-center ">
+        <div className="pt-20 gap-5 flex flex-col items-center ">
             {
                 toggle > 0 ? (
                     <>
@@ -34,6 +34,7 @@ export default function AuthPage( { user, setUser } ) {
             }
             <ToggleButton toggler={ handleToggle } toggleState={ toggle } />
             
+        </div>
         </div>
     </>
   )

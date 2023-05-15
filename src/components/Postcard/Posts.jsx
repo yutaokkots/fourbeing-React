@@ -26,7 +26,7 @@ export default function Posts({ post, id, refresh}) {
                                     Posted by { post.username }
                                 </div>
                                 <div className="flex justify-end">
-                                    {post.comments} comments
+                                    {post.comments} comment{post.comments !== 1 ? "s" : ""}
                                 </div>
                             </div>
                         </div>

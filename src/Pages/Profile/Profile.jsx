@@ -43,9 +43,9 @@ export default function Profile() {
 
     return (
         <>
-            <div>
+            <div className="bg-gradient-to-b h-screen from-emerald-100 via-slate-50 to-transparent">
                 <Navbar/>
-                <div className="mt-20 gap-5 flex flex-col items-center ">
+                <div className="pt-20 gap-5 flex flex-col items-center ">
                     <div className="bg-white shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                             { editProfile ?
                             <CreateProfile 

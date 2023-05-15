@@ -11,7 +11,7 @@ export default function LoveReply({ reply, refresh }) {
     async function addLoveRequest(request, replyPost, replyId){
         await replyAPI.addLove(request, replyPost, replyId)
     }
-    
+
     function handleClick(){
         setAddLove(+1)
         const requestObject = {
@@ -28,7 +28,7 @@ export default function LoveReply({ reply, refresh }) {
             type="button"
             name="love"
             onClick={handleClick}
-            >{reply.love === 0 ? "🤍" : "🩶"} {reply.user}</button>
+            >{reply.love === 0 ? "🤍" : "🤍"} {reply.user}</button>
     )
 }
 

@@ -41,7 +41,7 @@ export default function LoginForm() {
 
     return (
         <>
-            <div className="shadow-md w-9/12 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+            <div className="bg-white shadow-md w-9/12 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                 <form autoComplete="off" onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>username</label>
