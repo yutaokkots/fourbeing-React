@@ -1,0 +1,22 @@
+package.json
+
+"private": true,
+to
+"homepage": ".",
+
+https://stackoverflow.com/questions/75571634/why-is-react-router-not-working-in-vercal-when-i-refresh-the-page
+
+
+{
+  "routes": [
+    { "src": "/", "dest": "/" },
+    { "src": "/login", "dest": "/" },
+    { "src": "/profile", "dest": "/" }
+  ]
+}
+ to 
+{
+  "rewrites":  [
+    {"source": "/(.*)", "destination": "/"}
+  ]
+}
