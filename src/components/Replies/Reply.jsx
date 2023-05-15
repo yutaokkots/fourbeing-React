@@ -171,13 +171,3 @@ Reply.propTypes = {
     reply: PropTypes.object,
     refresh: PropTypes.func
 }
-
-
-// {user && 
-//     <button
-//         onSubmit={toggleButton}
-//         >Add a comment</button>
-//     }
-//     {user && toggle &&
-//     <CreateReplyComp />
-//     }

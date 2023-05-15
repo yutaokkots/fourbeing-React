@@ -15,6 +15,7 @@ export async function signUp(userData){
         return getUser();
     } catch (error) {
         console.error(error);
+        return error
         // Handle error here
     }
 }

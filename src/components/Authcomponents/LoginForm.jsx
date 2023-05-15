@@ -22,15 +22,22 @@ export default function LoginForm() {
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {
-            const userInfo = await userService.login(credentials);
-            setUser(userInfo);
+            await userService.login(credentials)
+            .then((response) => {
+                if (!response.ok || response.status === 400){
+                    setError("There was an error")
+                    throw new Error("There was an error")
+                }
+                setUser(response)
+                setUser(userService.getUser)
+                console.log(response)
+            }).then(()=>{
+                navigate("/")
+            })
         } catch {
             setError('Log In Failed - Try Again');
         }
-        navigate("/")
     }
-
-  
 
 
     return (
@@ -65,6 +72,9 @@ export default function LoginForm() {
                         className=' bg-moonlight hover:bg-land hover:text-vanilla py-1 px-4 rounded mt-5 mb-3'  
                         type="submit"
                         >Log in</button>
+                        {error !== "" && 
+                                error.error
+                            }
                     </div>
                     </form>
 

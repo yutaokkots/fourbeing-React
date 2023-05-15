@@ -41,9 +41,9 @@ export default function Post() {
 
     function sortByDate(commentArray){
         return [...commentArray].sort((a,b) => {  
-            if (a.created > b.created) {
+            if (a.created < b.created) {
                 return -1;
-            } else if (b.created < a.created) {
+            } else if (b.created > a.created) {
                 return 1;
             } else {
                 return 0;

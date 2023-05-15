@@ -17,7 +17,6 @@ export default function LoginForm() {
     const navigate = useNavigate()
     const { user, setUser } = useContext(AuthContext)
     const [error, setError] = useState('');
-
     const disable = false;
 
     function handleChange(evt){
@@ -28,6 +27,10 @@ export default function LoginForm() {
         evt.preventDefault();
         await userService.signUp(credentials).
         then((response) => {
+            if (!response.ok || response.status == 400){
+                setError("There was an error")
+                throw new Error("There was an error")
+            }
             setUser(response)
             setUser(userService.getUser)
         }).then(()=>{
@@ -86,6 +89,9 @@ export default function LoginForm() {
                             className=' bg-moonlight hover:bg-land hover:text-vanilla py-1 px-4 rounded mt-5 mb-3' 
                             type="submit" 
                             >Sign up</button>
+                            {error !== "" && 
+                                error.error
+                            }
                     </div>
                 </form>
 
