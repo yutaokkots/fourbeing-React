@@ -24,13 +24,8 @@ export default function LoginForm() {
         try {
             await userService.login(credentials)
             .then((response) => {
-                if (!response.ok || response.status === 400){
-                    setError("There was an error")
-                    throw new Error("There was an error")
-                }
                 setUser(response)
                 setUser(userService.getUser)
-                console.log(response)
             }).then(()=>{
                 navigate("/")
             })
