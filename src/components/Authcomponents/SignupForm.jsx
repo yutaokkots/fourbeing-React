@@ -35,8 +35,6 @@ export default function LoginForm() {
         }).catch((error) => {
             setError('Signup Failed - Try Again', error);
         })
-        
-        
     }
 
     return (
