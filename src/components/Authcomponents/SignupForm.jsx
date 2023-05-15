@@ -10,7 +10,6 @@ const initialState = {
     email: '',
     password:'',
     passwordConfirm:''
-
 }
 
 export default function LoginForm() {
@@ -30,14 +29,16 @@ export default function LoginForm() {
         console.log("submitted")
         await userService.signUp(credentials).then((response) => {
             console.log(response)
-            
         }).then((response) => {
             setUser(response)
+            setUser(userService.getUser)
+        }).then(()=>{
+            navigate("/")
         }).catch((error) => {
             setError('Signup Failed - Try Again', error);
         })
-        setUser(usersAPI.getUser)
-        navigate("/")
+        
+        
     }
 
     return (

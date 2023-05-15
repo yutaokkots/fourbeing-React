@@ -6,6 +6,7 @@ import CommunityResources from '../../components/Community/CommunityResources'
 import Postcard from '../../components/Postcard/Postcard'
 import * as replyAPI from '../../utilities/reply_api'
 import RepliesAll from '../../components/Replies/RepliesAll'
+import LanguageTranslator from '../../components/Language/LanguageTranslator'
 //import EditPostCard from '../../components/Postcard/EditPostCard'
 
 const initialPost = {
@@ -57,6 +58,7 @@ export default function Post() {
                         <div className="col-span-12 sm:col-span-5 sm:order-2">
                             <div className="">
                                 <CommunityResources />
+                                <LanguageTranslator />
                             </div>
                         </div>
                         <div className="col-span-12  sm:col-span-7 sm:order-1">

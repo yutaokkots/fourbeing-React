@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Posts from '../../components/Postcard/Posts'
 import { AuthContext } from '../App'
 import CommunityResources from '../../components/Community/CommunityResources'
+import LanguageTranslator from '../../components/Language/LanguageTranslator'
 
 export default function Dashboard() {
     const [allPosts, setAllPosts] = useState([""])
@@ -59,6 +60,7 @@ export default function Dashboard() {
                     <div className="col-span-12  sm:col-span-5 sm:order-2">
                         <div className="">
                             <CommunityResources />
+                            <LanguageTranslator />
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-7 sm:order-1">

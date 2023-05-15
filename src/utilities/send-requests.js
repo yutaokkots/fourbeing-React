@@ -3,8 +3,6 @@ import * as userService from './users-service'
 const DEV_URL = import.meta.env.VITE_DEVL_URL
 const PROD_URL = import.meta.env.VITE_PROD_URL
 
-
-
 // http://localhost:8000/
 
 export default async function sendRequest(url, method = 'GET', payload = null) {
