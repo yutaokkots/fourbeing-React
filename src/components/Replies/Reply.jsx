@@ -64,7 +64,6 @@ export default function Reply({ reply, refresh }) {
         refresh()
     }
 
-
     return (
     <>
             <div className="bg-white shadow-inner ml-1 mr-1 border-zinc-400 regal p-1 rounded-md hover:text-afterhour hover:border-afterhour mt-3">
