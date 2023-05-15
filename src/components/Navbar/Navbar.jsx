@@ -33,11 +33,7 @@ export default function Navbar() {
                     
                     <div className="font-bold text-2xl cursor-pointer flex items-end ">
                         <a href="/" >
-                            { windowSize[0] < 340 ?
-                            <img src={logoSm}></img>
-                            :
                             <img src={logo}></img>
-                            }
                         </a>
                     </div>
                     <div className="items-end">
