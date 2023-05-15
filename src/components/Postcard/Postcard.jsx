@@ -20,6 +20,7 @@ export default function Postcard({ singlePost, refresh }) {
                     <div className="col-span-11">
                         <div className="text-xl text-left">
                             <div className="text-2xl">{ singlePost.title }</div>
+                            <hr className="border-t border-gray-100 py-1"></hr>
                             <div>{ singlePost.description }</div>
                             <div className="text-sm flex justify-end">Posted by { singlePost.username }</div>
                         </div>

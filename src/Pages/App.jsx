@@ -61,9 +61,10 @@ export default function App() {
                     <Route path='/login' element={<AuthPage user={ user } setUser={ setUser}/>} />
                     <Route path='/profile/:userid' element={<UserProfile user={ user } setUser={ setUser}/>} />
                     <Route path='/fourbeing/:postid' element={<Post />} />
-                    <Route path='/fourbeing/:postid/edit' element={<EditPost />} />
+                    
                     { user &&
                     <>
+                    <Route path='/fourbeing/:postid/edit' element={<EditPost />} />
                     <Route path='/createpost' element={<CreatePost user={ user } setUser={ setUser}/>} />
                     <Route path='/profile' element={<Profile user={ user } setUser={ setUser}/>} />
                     </>

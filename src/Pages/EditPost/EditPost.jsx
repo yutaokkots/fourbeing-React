@@ -5,6 +5,8 @@ import CreatePostComp from '../../components/Postcard/CreatePostComp'
 import PropTypes from 'prop-types'
 import * as postsAPI from '../../utilities/posts_api'
 import EditPostCard from '../../components/Postcard/EditPostCard'
+import LanguageTranslator from '../../components/Language/LanguageTranslator'
+
 const initialPost = {
     title : "test",
     description : "test",
@@ -27,21 +29,20 @@ export default function EditPost({id}) {
     return (
         <>
         <Navbar />
-            <div  className="bg-white v-screen h-screen">
-                <div className="mt-10 grid grid-cols-12 gap-4 px-5">
-                    <div className="col-span-7">
-                        <div>Post Here</div>
-                        <EditPostCard singlePost={singlePost}/>
-                    </div>
-                    <div className="col-span-5">
-                        <div className="">
-                            <h1> second column </h1>
-                        </div>
-                    <CommunityResources />
+            <div  className="bg-gradient-to-b h-screen from-slate-400 via-slate-50 to-transparent">
+              <div className="pt-20 grid px-5 gap-4 grid-cols-12 md:mt-10 md:pt-10">
+                  <div className="col-span-12  sm:col-span-5 sm:order-2">
+                      <div className="">
+                          <CommunityResources />
+                          <LanguageTranslator />
+                      </div>
+                  </div>
+                  <div className="col-span-12  sm:col-span-7 sm:order-1">
+                      <EditPostCard singlePost={singlePost}/>
+                  </div>
 
-                </div>
-                </div>
-            </div>
+              </div>
+          </div>
         </>
   )
 }

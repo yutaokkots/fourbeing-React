@@ -19,6 +19,8 @@ export default function Posts({ post, id, refresh}) {
                                 <div className="text-lg text-left">
                                     { post.title }
                                 </div>
+                                <hr className="border-t border-gray-100 py-1"></hr>
+
                                 <div className=" text-left ">
                                     { post.description }
                                 </div>

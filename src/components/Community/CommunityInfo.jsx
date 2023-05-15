@@ -26,6 +26,7 @@ export default function CommunityInfo() {
               :
               <>
                   <p>fourbeing is a place to connect.</p>
+                  <hr className="border-t border-gray-100 py-1"></hr>
                   <p>Inspired by the <a>Brahmaviharas</a>, this space represents the practice of the tenets of the immeasurables, which consists of:</p>
                   <div className="px-2">
                     <ul>
@@ -35,8 +36,9 @@ export default function CommunityInfo() {
                       <li>maitrī - <span className="text-sm">loving kindness.</span></li>
                     </ul>
                   </div>
+                  <hr className="border-t border-gray-100 py-1"></hr>
                   <p><span className="text-sm">"The Brahmaviharas are four elements of true love. They are called Immeasurable, because if you practice them, they will grow every day until they embrace the whole world. You will become happier and those around you will become happier, also.”</span></p>
-                  <div className="text-right">Thich Nhat Hanh</div>
+                  <div className="text-right text-sm">Thich Nhat Hanh</div>
               </>
 
             }
