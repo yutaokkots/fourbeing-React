@@ -55,7 +55,10 @@ export default function Dashboard() {
                     <div className="col-span-12  sm:col-span-5 sm:order-2">
                         <div className="">
                             <CommunityResources />
-                            <LanguageTranslator />
+                            {user &&
+                                <LanguageTranslator />
+                            }
+                            
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">

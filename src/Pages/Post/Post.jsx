@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useParams }  from 'react-router-dom'
 import * as postsAPI from '../../utilities/posts_api'
 import Navbar from '../../components/Navbar/Navbar'
@@ -7,6 +7,7 @@ import Postcard from '../../components/Postcard/Postcard'
 import * as replyAPI from '../../utilities/reply_api'
 import RepliesAll from '../../components/Replies/RepliesAll'
 import LanguageTranslator from '../../components/Language/LanguageTranslator'
+import { AuthContext } from '../App'
 
 //import EditPostCard from '../../components/Postcard/EditPostCard'
 
@@ -27,6 +28,7 @@ const initialReply = [{
 }]
 
 export default function Post() {
+    const { user, setUser } = useContext(AuthContext)
     const postId = useParams()
     const [singlePost, setSinglePost] = useState(initialPost)
     const [replies, setReplies] = useState(initialReply)
@@ -80,7 +82,10 @@ export default function Post() {
                     <div className="mt-20 grid gap-5 grid-cols-12 px-5 md:mt-10 md:pt-10">
                         <div className="col-span-12 sm:col-span-5 sm:order-2">
                             <div className="">
+                                <CommunityResources />
+                                    {user &&
                                 <LanguageTranslator />
+                            }
                             </div>
                         </div>
                         <div className="col-span-12  sm:col-span-7 sm:order-1 mb-20">

@@ -56,13 +56,18 @@ export default function App() {
         <>
             <AuthContext.Provider value={{user, setUser}}>
                 <Routes>
+
                     <Route path='/' element={<Dashboard user={ user }/>} />
                     <Route path='/login' element={<AuthPage user={ user } setUser={ setUser}/>} />
-                    <Route path='/createpost' element={<CreatePost user={ user } setUser={ setUser}/>} />
                     <Route path='/profile/:userid' element={<UserProfile user={ user } setUser={ setUser}/>} />
-                    <Route path='/profile' element={<Profile user={ user } setUser={ setUser}/>} />
                     <Route path='/fourbeing/:postid' element={<Post />} />
                     <Route path='/fourbeing/:postid/edit' element={<EditPost />} />
+                    { user &&
+                    <>
+                    <Route path='/createpost' element={<CreatePost user={ user } setUser={ setUser}/>} />
+                    <Route path='/profile' element={<Profile user={ user } setUser={ setUser}/>} />
+                    </>
+                    }
                 </Routes>
             </AuthContext.Provider>
         </>
