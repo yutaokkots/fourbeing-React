@@ -11,7 +11,7 @@ const initialState = {
     website: "",
 }
 
-export default function CreateProfile( { user, profile, profileEditor, profileExists, setProfile, setEditProfile }) {
+export default function CreateProfile( { user, profile, editorChooser, profileExists, setProfile }) {
     const [profileInfo, setProfileInfo] = useState(profile)
     const [error, setError] = useState('');
     
@@ -25,7 +25,7 @@ export default function CreateProfile( { user, profile, profileEditor, profileEx
             await profileAPI.editProfile(info)
                 .then((response)=>{
                     setProfile(response)
-                    profileEditor()
+                    editorChooser()
                 }).catch((error) => {
                     console.log(error)
                     setError("There was an error")
@@ -34,7 +34,7 @@ export default function CreateProfile( { user, profile, profileEditor, profileEx
             await profileAPI.createProfile(info)
                 .then((response)=>{
                     setProfile(response)
-                    profileEditor()
+                    editorChooser()
                 })
                 .catch((error) => {
                     console.log(error)
@@ -52,12 +52,12 @@ export default function CreateProfile( { user, profile, profileEditor, profileEx
 
     // makes the "editProfile" state false to go back to the previous screen
     function handleClick(){
-        setEditProfile(false)
+        editorChooser()
     }
 
     return (
     <>    
-        <div className="flex flex-col items-center">Create Profile</div>
+        <div className="">Create/Edit Profile</div>
         <form
             onSubmit={handleSubmit}>
             <div className='relative  flex-row justify-between'>
@@ -109,7 +109,7 @@ export default function CreateProfile( { user, profile, profileEditor, profileEx
                         <button
                             className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
                             type="submit"
-                            >submit</button>
+                            >save</button>
                     </div>
                     <div>
                         <button
@@ -130,7 +130,7 @@ export default function CreateProfile( { user, profile, profileEditor, profileEx
 CreateProfile.propTypes = {
     user: PropTypes.string,
     profile: PropTypes.obj,
-    profileEditor: PropTypes.func,
+    editorChooser: PropTypes.func,
     profileExists: PropTypes.bool,
     setProfile: PropTypes.func,
     setEditProfile: PropTypes.func

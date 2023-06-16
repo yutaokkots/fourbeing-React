@@ -1,5 +1,7 @@
+import fileSendRequest from './file-send-requests'
 import sendRequest from './send-requests'
 import * as usersService from './users-service'
+
 
 const BASE_URL = '/api/auth/user/profile'
 
@@ -20,4 +22,19 @@ export function editProfile(userData){
 
 export function getUserProfile(id){
     return sendRequest(`${BASE_URL}/${id}/`)
+}
+
+export function getProfilePhoto(){
+    const id = usersService.getUserId()
+    return sendRequest(`${BASE_URL}/${id}/get_photo/`)
+}
+
+export function addProfilePhoto(file){
+    const id = usersService.getUserId()
+    return fileSendRequest(`${BASE_URL}/${id}/add_photo/`, "POST", file)
+}
+
+export function editProfilePhoto(file){
+    const id = usersService.getUserId()
+    return fileSendRequest(`${BASE_URL}/${id}/edit_photo/`, "PUT", file)
 }
