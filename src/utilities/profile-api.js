@@ -5,8 +5,11 @@ import * as usersService from './users-service'
 
 const BASE_URL = '/api/auth/user/profile'
 
-export function getProfile(){
-    const id = usersService.getUserId()
+export function getProfile(id){
+    console.log(id)
+    if (id == undefined){
+        id = usersService.getUserId()
+    }
     return sendRequest(`${BASE_URL}/${id}/`)
 }
 
@@ -24,8 +27,10 @@ export function getUserProfile(id){
     return sendRequest(`${BASE_URL}/${id}/`)
 }
 
-export function getProfilePhoto(){
-    const id = usersService.getUserId()
+export function getProfilePhoto(id){
+    if (id == undefined){
+        id = usersService.getUserId()
+    }
     return sendRequest(`${BASE_URL}/${id}/get_photo/`)
 }
 

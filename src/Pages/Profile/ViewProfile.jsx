@@ -3,16 +3,14 @@ import PropTypes from 'prop-types'
 import { AuthContext } from '../App'
 import Photo from '../../components/ProfilePhoto/Photo'
 
-
-export default function ViewProfile({ editorChooser, profileExists, profile, profilePhoto }) {
+export default function ViewProfile({ editorChooser, profileExists, profile, profilePhoto, currentUser }) {
     const { user, setUser } = useContext(AuthContext)
-
     return (
         <>
             <div className="flex flex-col items-center">
                 <div className="rounded-full"></div>
                 {
-                    user &&
+                    profile.username &&
                     <>
                         {profilePhoto != "" && 
                         <Photo profilePhoto={profilePhoto} />
@@ -27,41 +25,43 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
                 }
                 
             </div>
-            <div 
-                className="flex justify-end">
-                <div>
-                    <button
-                            className="ml-auto"
-                            type="button"
-                            onClick={() => editorChooser(1)}
-                            >
-                            {
-                            profileExists ?
-                            "Edit"
-                            :    
-                            "Create Profile"
-                            }
-                                
-                    </button>
+            {currentUser && 
+                <div 
+                    className="flex justify-end">
+                    <div>
+                        <button
+                                className="ml-auto"
+                                type="button"
+                                onClick={() => editorChooser(1)}
+                                >
+                                {
+                                profileExists ?
+                                "Edit"
+                                :    
+                                "Create Profile"
+                                }
+                                    
+                        </button>
+                    </div>
+                    <div>
+                        <span>&nbsp; | &nbsp;</span>
+                    </div>
+                    <div>
+                        <button
+                                className="ml-auto"
+                                type="button"
+                                onClick={() => editorChooser(2)}
+                                >
+                                {
+                                profilePhoto ?
+                                "Edit Photo"
+                                :    
+                                "Add Photo"
+                                }    
+                        </button>
+                    </div>
                 </div>
-                <div>
-                    <span>&nbsp; | &nbsp;</span>
-                </div>
-                <div>
-                    <button
-                            className="ml-auto"
-                            type="button"
-                            onClick={() => editorChooser(2)}
-                            >
-                            {
-                            profilePhoto ?
-                            "Edit Photo"
-                            :    
-                            "Add Photo"
-                            }    
-                    </button>
-                </div>
-            </div>
+            }
         </>
     )
 }
@@ -71,5 +71,6 @@ ViewProfile.propTypes = {
     editorChooser: PropTypes.func,
     profileExists: PropTypes.bool,
     profilePhoto: PropTypes.string,
+    currentUser: PropTypes.bool,
   }
   

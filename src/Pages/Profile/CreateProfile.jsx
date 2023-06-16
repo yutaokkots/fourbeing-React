@@ -104,7 +104,8 @@ export default function CreateProfile( { user, profile, editorChooser, profileEx
                     <div>
                         {(error === "There was an error") && "There was an error"}
                     </div>
-                    <div>
+                    <div
+                        className="my-2">
                         
                         <button
                             className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
