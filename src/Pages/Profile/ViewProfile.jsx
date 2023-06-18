@@ -15,7 +15,7 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
                         {profilePhoto != "" && 
                         <Photo profilePhoto={profilePhoto} />
                         }
-                        <div className="ml-auto">username: {user}</div>
+                        <div className="ml-auto">username: {profile.username}</div>
 
                         <div>{ profile.title }</div>
                         <div>{ profile.bio }</div>
