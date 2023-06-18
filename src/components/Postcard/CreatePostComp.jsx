@@ -15,6 +15,8 @@ export default function CreatePostComp() {
     const [form, setForm ] = useState(initialForm)
     const { user } = useContext(AuthContext)
     const [error, setError] = useState('');
+    const [file, setFile] = useState("")
+    const [enabled, setEnabled] = useState(false)
 
     function handleChange(evt) {
         setForm({ ...form, [evt.target.name]: evt.target.value });
@@ -22,11 +24,21 @@ export default function CreatePostComp() {
 
     async function createPost(info){
         info.username = user
-        try {
-            return await postsAPI.createPost(info)
-        } catch(err){
-            console.log(err)
-            return false
+        if (file){
+            const formData = new FormData()
+            formData.append('imgfile', file, `${file.name}`)
+            formData.append('postdata', info, `${info}`)
+            try {
+                postsAPI.createPostPhoto(info)
+            } catch(err){
+                console.log(err)
+            }
+        } else if (!file){
+            try {
+                return await postsAPI.createPost(info)
+            } catch(err){
+                console.log(err)
+            }
         }
     }
 
@@ -34,7 +46,6 @@ export default function CreatePostComp() {
         evt.preventDefault()
         // let response = createPost(form)
         createPost(form).then((response) => {
-            console.log(response)
             return response.data.id
         }).then((response) => {
             navigate(`/fourbeing/${response}`)
@@ -42,6 +53,13 @@ export default function CreatePostComp() {
             console.log(error)
             setError("There was an error")
         })
+    }
+
+    function handleFileChange(evt){
+        if (evt.target.files){
+            setFile(evt.target.files[0])
+            setEnabled(true)
+        }
     }
 
     return (
@@ -71,6 +89,24 @@ export default function CreatePostComp() {
                             value={form.description}
                             required></textarea>
                     </div>
+                    
+                    <div
+                        className="flex relative flex-row justify-between my-2 items-center "
+                        >
+                        <div>
+                            <input 
+                                type="file" 
+                                name="imgfile"
+                                accept="image/*"
+                                encType="multipart/form-data"
+                                onChange={handleFileChange} />
+                                
+                            <div>{file && `${file.name} - ${file.type}`}</div>
+                        </div>
+
+                    </div>
+
+
                     <div>
                         {
                             error &&

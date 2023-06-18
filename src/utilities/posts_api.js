@@ -1,4 +1,5 @@
 import sendRequest from "./send-requests"
+import fileSendRequest from "./file-send-requests"
 
 const BASE_URL = "/api/fourbeing"
 
@@ -13,6 +14,11 @@ export function getPost(postId){
 export function createPost(postContent){
     return sendRequest(`${BASE_URL}/create/`, "POST", postContent)
 }
+
+export function createPostPhoto(postContent){
+    return fileSendRequest(`${BASE_URL}/create/`, "POST", postContent)
+}
+
 
 export function updatePost(postContent, postId){
     return sendRequest(`${BASE_URL}/${postId}/update/`, "PUT", postContent)

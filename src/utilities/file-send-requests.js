@@ -8,11 +8,7 @@ const PROD_URL = import.meta.env.VITE_PROD_URL
 export default async function fileSendRequest(url, method = 'GET', file = null) {
     const options = { method };
     if (file) {
-        // options.headers = { 
-        //     'Content-Type': "multipart/form-data", 
-        // };
         options.body = file
-        //console.log(file.type)
     }
 
     const token = userService.getToken();
