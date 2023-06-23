@@ -33,11 +33,12 @@ export function getToken(){
     return token;
 }
 
-// getUser() -> returns user
+// getUser() -> returns user name
 export function getUser(){
     const token = getToken();
     return token ? JSON.parse(window.atob(token.split('.')[1])).name : null
 }
+
 
 // login() -> user logins
 export async function login(credentials){
@@ -51,7 +52,7 @@ export function logOut() {
     localStorage.removeItem('token');
 }
 
-// logout() -> get userId from the token saved locally
+// getUserId() -> get userId from the token saved locally
 export function getUserId(){
     const token = localStorage.getItem("token");
     return token ? JSON.parse(window.atob(token.split('.')[1])).user_id : null

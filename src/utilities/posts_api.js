@@ -24,8 +24,8 @@ export function updatePost(postContent, postId){
     return sendRequest(`${BASE_URL}/${postId}/update/`, "PUT", postContent)
 }
 
-export function deletePost(postId){
-    return sendRequest(`${BASE_URL}/${postId}/create/`)
+export function deletePost(userId, postId){
+    return sendRequest(`${BASE_URL}/${postId}/delete/`)
 }
 
 export function addLove (loveInfo, postId){

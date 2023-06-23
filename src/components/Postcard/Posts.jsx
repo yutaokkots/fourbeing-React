@@ -32,7 +32,7 @@ export default function Posts({ post, id, refresh}) {
                             </div>
                             <div className="col-span-2">
                                 <div className="pt-2 pb-1">
-                                    <img src={post.photo} />
+                                    <img className="rounded-md" src={post.photo} />
                                 </div>
                                 <div>
                                     <div className="flex justify-end text-sm">

@@ -32,6 +32,7 @@ export default function Reply({ reply, refresh }) {
     async function deleteReply(postId, replyId){
         await replyAPI.deleteReply(postId, replyId)
     }
+    
     // hides or reveals the editing area
     function toggleEdit(){
         setBeingEdited(!beingEdited)

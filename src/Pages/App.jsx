@@ -17,12 +17,14 @@ export const AuthContext = createContext()
 
 export default function App() {
     const [user, setUser] = useState(usersAPI.getUser)
+    const [userId, setUserId] = useState(usersAPI.getUserId)
 
     const navigate = useNavigate()
 
     useEffect(()=>{
         setUser(usersAPI.getUser)
     }, [])
+    
     function updateUser(userState){
         setUser(userState)
       }
@@ -30,7 +32,7 @@ export default function App() {
 
     return (
         <>
-            <AuthContext.Provider value={{user, setUser}}>
+            <AuthContext.Provider value={{user, setUser, userId, setUserId}}>
                 <Routes>
                     <Route path='/' element={<Dashboard user={ user }/>} />
                     <Route path='/login' element={<AuthPage user={ user } setUser={ setUser}/>} />  

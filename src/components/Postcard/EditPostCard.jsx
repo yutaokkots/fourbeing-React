@@ -3,29 +3,34 @@ import { useNavigate, useParams } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { AuthContext } from '../../Pages/App' 
 import * as postsAPI from '../../utilities/posts_api'
+import DeleteEditComp from '../DeleteEditComp/DeleteEditComp'
 
 const initialPost = {
-    title : "test",
-    description : "test",
-    created : "date",
+    title : "",
+    description : "",
+    created : "",
     username : ""
 }
-
 
 export default function EditPostCard() {
     const postId = useParams()
     const navigate = useNavigate()
     const [form, setForm ] = useState(initialPost)
-    const { user } = useContext(AuthContext)
-    const [error, setError] = useState('');
-    //const [singlePost, setSinglePost] = useState(initialPost)
+    const [post, setPost] = useState(initialPost)
+    const { user, userId } = useContext(AuthContext)
+    const [error, setError] = useState('')
 
+
+    console.log(form)
+
+    // retrieves form information based on url parameter information:
+    // '/fourbeing/:postid/edit'
     useEffect(() => {
         async function getPost(){
             await postsAPI.getPost(postId.postid).then((response) => {
                 setForm(response.data)
+                setPost(response.data)
             }).catch((error)=>{console.log(error)})
-            
         }
         getPost()
     }, [])
@@ -34,7 +39,7 @@ export default function EditPostCard() {
         setForm({ ...form, [evt.target.name]: evt.target.value });
         }
 
-    async function createPost(info){
+    async function updatePost(info){
         info.username = user
         try {
             return await postsAPI.updatePost(info, postId.postid)
@@ -44,9 +49,13 @@ export default function EditPostCard() {
         }
     }
 
+    async function deletePost(userId, postId){
+        await postsAPI.deletePost(userId, postId)
+    }
+
     function handleSubmit(evt) {
-        evt.preventDefault()
-        createPost(form).then((response) => {
+        evt.preventDefault(userId, postId)
+        updatePost(form).then((response) => {
             return response.id
         }).then((response) => {
             navigate(`/fourbeing/${response}`)
@@ -56,6 +65,20 @@ export default function EditPostCard() {
         })
     }
 
+
+    function handleDelete(evt){
+        evt.preventDefault()
+        deletePost().then((response) => {
+            return response.id
+        }).then((response) => {
+            navigate(`/fourbeing/${response}`)
+        }).catch((error) => {
+            console.log(error)
+            setError("There was an error")
+        })
+   
+    }
+
     return (
         <>
             <div className="shadow-md bg-white p-2 border-zinc-400 text-regal  rounded-md hover:text-afterhour hover:border-afterhour">
@@ -63,44 +86,46 @@ export default function EditPostCard() {
                     Editing: {form.title}
                 </div>
                 <div className="col-span-10">
-                <form
-                    onSubmit={handleSubmit}>
-                    <div className='relative flex-row justify-between mt-2 mb-2'>
-                        <label>Title: </label>
-                        <input 
-                            type="text" 
-                            className="w-full border border-gray-300 rounded-md px-2 y-2"
-                            name="title"
-                            placeholder="Title" 
-                            value={form.title}
-                            onChange={handleChange}
-                            required></input>
+                    <form
+                        onSubmit={handleSubmit}>
+                        <div className='relative flex-row justify-between mt-2 mb-2'>
+                            <label>Title: </label>
+                            <input 
+                                type="text" 
+                                className="w-full border border-gray-300 rounded-md px-2 y-2"
+                                name="title"
+                                placeholder="Title" 
+                                value={form.title}
+                                onChange={handleChange}
+                                required></input>
+                            </div>
+                        <div className='relative flex-row justify-between mt-2 mb-2'>
+                            <label>Post: </label>
+                            <textarea 
+                                className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
+                                type="text" 
+                                name="description" 
+                                placeholder="Description"
+                                onChange={handleChange}
+                                value={form.description}
+                                required></textarea>
                         </div>
-                    <div className='relative flex-row justify-between mt-2 mb-2'>
-                        <label>Post: </label>
-                        <textarea 
-                            className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
-                            type="text" 
-                            name="description" 
-                            placeholder="Description"
-                            onChange={handleChange}
-                            value={form.description}
-                            required></textarea>
-                    </div>
-                    <div className="flex justify-end">
-                        {
-                            error &&
-                                <h1>{error}</h1>
-                        }
-                        <h1>Post as { user }</h1>
-                    </div>
-                    <div className="flex justify-end">
-                        <button
-                            className="bg-regallight hover:bg-regal text-white font-bold mt-2 py-1 px-4 rounded-full"
-                            >Submit</button>
-                    </div>
+                        <div className="flex justify-end">
+                            {
+                                error &&
+                                    <h1>{error}</h1>
+                            }
+                            <h1>Post as { user }</h1>
+                        </div>
+                        <DeleteEditComp 
+                            handleDelete={handleDelete}
+                            handleSubmit={handleSubmit}
+                            post={post}/>
+                        <div className="flex justify-end">
 
-                </form>
+                        </div>
+
+                    </form>
                     <div className=" text-left">
 
                     </div>
@@ -111,6 +136,7 @@ export default function EditPostCard() {
 }
 
 EditPostCard.propTypes = {
-    id: PropTypes.number
+    id: PropTypes.number,
+
 }
 

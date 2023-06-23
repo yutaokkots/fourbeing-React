@@ -7,6 +7,7 @@ import LovePost from './LovePost'
 
 export default function Postcard({ singlePost, refresh }) {
     const { user } = useContext(AuthContext)
+
     return (
         <>
             <div className="bg-white shadow-md mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
@@ -14,11 +15,11 @@ export default function Postcard({ singlePost, refresh }) {
                     singlePost.photo &&
                 <div>
                     <div>
-                        <img src={singlePost.photo}/>
+                        <img className="rounded-md" src={singlePost.photo}/>
                     </div>
                 </div>
                 }
-                <div className="grid grid-cols-12">
+                <div className="grid grid-cols-12 mt-3">
                     <div className="col-span-1 flex items-center">
                         <div className="col-span-1 flex flex-col justify-center items-center ">
                                 <LovePost post={singlePost} refresh={ refresh }/>
@@ -30,7 +31,12 @@ export default function Postcard({ singlePost, refresh }) {
                             <div className="text-2xl">{ singlePost.title }</div>
                             <hr className="border-t border-gray-100 py-1"></hr>
                             <div>{ singlePost.description }</div>
-                            <div className="text-sm flex justify-end">Posted by { singlePost.username }</div>
+                            <div className="text-sm flex justify-end">
+                                Posted by &nbsp;
+                                <a className="underline" href={`/profile/${singlePost.profile}`}>
+                                {singlePost.username}
+                                </a>
+                            </div>
                         </div>
                         <div className="flex justify-end">
                         {
