@@ -10,20 +10,9 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
     const [beingDeleted, setBeingDeleted] = useState(false)
     const { user, userId } = useContext(AuthContext)
 
-    console.log(userId)
-
     function handleSubmitPost(evt){
         evt.preventDefault()
         handleSubmit()
-        // const newReply = {
-        //     username : user,
-        //     comment: editedComment,
-        //     id: reply.id,
-        //     post: reply.post
-        // }
-        // editReply(newReply, reply.post, reply.id)
-        // refresh()
-
     }
 
     // hides or reveals the editing area

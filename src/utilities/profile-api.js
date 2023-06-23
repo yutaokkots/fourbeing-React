@@ -6,7 +6,6 @@ import * as usersService from './users-service'
 const BASE_URL = '/api/auth/user/profile'
 
 export function getProfile(id){
-    console.log(id)
     if (id == undefined){
         id = usersService.getUserId()
     }

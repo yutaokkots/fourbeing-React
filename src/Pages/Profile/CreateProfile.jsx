@@ -130,7 +130,7 @@ export default function CreateProfile( { user, profile, editorChooser, profileEx
 
 CreateProfile.propTypes = {
     user: PropTypes.string,
-    profile: PropTypes.obj,
+    profile: PropTypes.object,
     editorChooser: PropTypes.func,
     profileExists: PropTypes.bool,
     setProfile: PropTypes.func,

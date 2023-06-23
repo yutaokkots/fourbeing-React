@@ -20,9 +20,6 @@ export default function EditPostCard() {
     const { user, userId } = useContext(AuthContext)
     const [error, setError] = useState('')
 
-
-    console.log(form)
-
     // retrieves form information based on url parameter information:
     // '/fourbeing/:postid/edit'
     useEffect(() => {
