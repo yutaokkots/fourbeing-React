@@ -14,26 +14,57 @@ export default function Posts({ post, id, refresh}) {
                                 <div>🤍</div>
                                 <div>{post.love}</div>
                             </div>
-                        <div className="col-span-11">
-                            <div className="pl-2 pt-2">
-                                <div className="text-lg text-left">
-                                    { post.title }
-                                </div>
-                                <hr className="border-t border-gray-100 py-1"></hr>
+                            { post.photo 
+                            ?
+                            <>
+                            <div className="col-span-9">
+                                <div className="pl-2 pt-2">
+                                    <div className="text-lg text-left">
+                                        { post.title }
+                                    </div>
+                                    <hr className="border-t border-gray-100 py-1"></hr>
 
-                                <div className=" text-left ">
-                                    { post.description }
-                                </div>
-                                <div className="flex justify-end text-sm">
-                                    Posted by { post.username }
-                                </div>
-                                <div className="flex justify-end">
-                                    {post.comments} comment{post.comments !== 1 ? "s" : ""}
+                                    <div className=" text-left ">
+                                        { post.description.substring(0, 100) }
+                                    </div>
+
                                 </div>
                             </div>
-                        </div>
+                            <div className="col-span-2">
+                                <div className="pt-2 pb-1">
+                                    <img src={post.photo} />
+                                </div>
+                                <div>
+                                    <div className="flex justify-end text-sm">
+                                        Posted by { post.username }
+                                    </div>
+                                    <div className="flex justify-end">
+                                        {post.comments} comment{post.comments !== 1 ? "s" : ""}
+                                    </div>
+                                </div>
+                            </div>
+                            </>
+                            :
+                            <div className="col-span-11">
+                                <div className="pl-2 pt-2">
+                                    <div className="text-lg text-left">
+                                        { post.title }
+                                    </div>
+                                    <hr className="border-t border-gray-100 py-1"></hr>
 
-                    </div>
+                                    <div className=" text-left ">
+                                        { post.description }
+                                    </div>
+                                    <div className="flex justify-end text-sm">
+                                        Posted by { post.username }
+                                    </div>
+                                    <div className="flex justify-end">
+                                        {post.comments} comment{post.comments !== 1 ? "s" : ""}
+                                    </div>
+                                </div>
+                            </div>
+                            }
+                        </div>
                     </a>
                 
             </div>

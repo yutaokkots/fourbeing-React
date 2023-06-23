@@ -10,6 +10,14 @@ export default function Postcard({ singlePost, refresh }) {
     return (
         <>
             <div className="bg-white shadow-md mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                {
+                    singlePost.photo &&
+                <div>
+                    <div>
+                        <img src={singlePost.photo}/>
+                    </div>
+                </div>
+                }
                 <div className="grid grid-cols-12">
                     <div className="col-span-1 flex items-center">
                         <div className="col-span-1 flex flex-col justify-center items-center ">

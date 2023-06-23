@@ -16,7 +16,7 @@ export function createPost(postContent){
 }
 
 export function createPostPhoto(postContent){
-    return fileSendRequest(`${BASE_URL}/create/`, "POST", postContent)
+    return fileSendRequest(`${BASE_URL}/createPhoto/`, "POST", postContent)
 }
 
 

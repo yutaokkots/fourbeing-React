@@ -25,16 +25,19 @@ export default function CreatePostComp() {
     async function createPost(info){
         info.username = user
         if (file){
+            console.log(file)
             const formData = new FormData()
             formData.append('imgfile', file, `${file.name}`)
-            formData.append('postdata', info, `${info}`)
+            formData.append('postdata', JSON.stringify(info))
             try {
-                postsAPI.createPostPhoto(info)
+                console.log(formData)
+                return postsAPI.createPostPhoto(formData)
             } catch(err){
                 console.log(err)
             }
         } else if (!file){
             try {
+                console.log(info)
                 return await postsAPI.createPost(info)
             } catch(err){
                 console.log(err)

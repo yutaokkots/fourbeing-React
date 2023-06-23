@@ -62,7 +62,7 @@ export default function EditPhoto({ editorChooser, profilePhoto, setPhoto }) {
     return (
         <>
             { profilePhoto && 
-                <Photos profilePhoto={profilePhoto} />
+                <Photo profilePhoto={profilePhoto} />
             }
             
             <div>

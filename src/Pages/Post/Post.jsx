@@ -15,7 +15,8 @@ const initialPost = {
     title : "",
     description : "",
     created : "",
-    username : ""
+    username : "",
+    photo:""
 }
 
 const initialReply = [{
