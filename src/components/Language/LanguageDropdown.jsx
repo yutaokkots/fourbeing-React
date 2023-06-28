@@ -45,6 +45,9 @@ const languages = [
     }, 
     {code:"de",
         language:"German"
+    },
+    {code:"my",
+        language:"Burmese"
     }
 ]
 
@@ -66,7 +69,7 @@ export default function LanguageDropdown({setPromptLanguage}) {
                 onChange={handleDropdown}
                 className="w-full border border-gray-300 rounded-md px-2 y-2"
                 >
-                <option>Select</option>
+                <option>Select language</option>
                 {
                     languages.map((language, idx) =>                 
                             <option                 

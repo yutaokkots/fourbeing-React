@@ -22,7 +22,7 @@ export default function CommunityInfo() {
               </div>
             {
               hide ?
-              <></>
+              <><p>fourbeing is a place to connect.</p></>
               :
               <>
                   <p>fourbeing is a place to connect.</p>
@@ -39,6 +39,7 @@ export default function CommunityInfo() {
                   <hr className="border-t border-gray-100 py-1"></hr>
                   <p><span className="text-sm">"The Brahmaviharas are four elements of true love. They are called Immeasurable, because if you practice them, they will grow every day until they embrace the whole world. You will become happier and those around you will become happier, also.”</span></p>
                   <div className="text-right text-sm">Thich Nhat Hanh</div>
+                  <hr className="border-t border-gray-100 py-1"></hr>
               </>
 
             }

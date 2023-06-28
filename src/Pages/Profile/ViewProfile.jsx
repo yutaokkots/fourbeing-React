@@ -5,11 +5,31 @@ import Photo from '../../components/ProfilePhoto/Photo'
 
 export default function ViewProfile({ editorChooser, profileExists, profile, profilePhoto, currentUser }) {
     const { user, setUser } = useContext(AuthContext)
+    console.log(profileExists) 
+    console.log(profile)
     return (
         <>
+
+
             <div className="flex flex-col items-center">
                 <div className="rounded-full"></div>
-                {
+                {profileExists ? 
+                    <>
+                        {profilePhoto != "" &&      
+                        <Photo profilePhoto={profilePhoto} />
+                        }
+                        <div className="ml-auto">username: {profile.username ? profile.username : "?"}</div>
+
+                        <div>{ profile.title }</div>
+                        <div>{ profile.bio }</div>
+                        <div>{ profile.location }</div>
+                        <div><a href={ 'https://' + profile.website }>{ profile.website }</a></div>
+                    </>
+                    :
+                    "It looks like you're looking for someone"
+                    }
+                {/* {
+                    
                     profile.username &&
                     <>
                         {profilePhoto != "" &&      
@@ -22,7 +42,7 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
                         <div>{ profile.location }</div>
                         <div><a href={ 'https://' + profile.website }>{ profile.website }</a></div>
                     </>
-                }
+                } */}
                 
             </div>
             {currentUser && 
@@ -74,3 +94,4 @@ ViewProfile.propTypes = {
     currentUser: PropTypes.bool,
   }
   
+

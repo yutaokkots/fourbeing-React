@@ -7,6 +7,8 @@ import { AuthContext } from '../App'
 import CreateProfile from './CreateProfile'
 import ViewProfile from './ViewProfile'
 import * as usersService from '../../utilities/users-service'
+import PostHistory from './PostHistory'
+import Posts from '../../components/Postcard/Posts'
 
 const initialProfile = {
     title: "",
@@ -14,6 +16,7 @@ const initialProfile = {
     location: "",
     website: "",
     }
+const initialUserPost = [{}, {}]
 
 export default function Profile() {
     let { userid } = useParams()
@@ -39,9 +42,13 @@ export default function Profile() {
     // editing features of profile page. 
     const [currentUser, setCurrentUser] = useState(false)
 
+    // 'userPosts' holds an object that stores all user posts
+    const [userPosts, setUserPosts] = useState(initialUserPost)
+
     function checkTokenAndProfile(userId){
         return usersService.getUserId() === parseInt(userId)
     }
+
 
     // loads the screen with a user's profile information, if any. 
     // if no user profile exists, the profileExists state is set to false
@@ -50,6 +57,7 @@ export default function Profile() {
         async function getProfile(){
             await profileAPI.getProfile(userid)
                 .then((profile)=>{
+                    console.log(profile)
                     if (profile.profile === "None"){
                         setProfileExists(false)
                     } else if (profile.profile !== "None") {
@@ -61,6 +69,12 @@ export default function Profile() {
                 .then((profile)=>{
                     let boolUser = checkTokenAndProfile(profile.profile.user_id)
                     setCurrentUser(boolUser)
+                    return profile.profile.user_id
+                })
+                .then((userId)=>{
+                    return profileAPI.getUserPost(userId)
+                }).then((response)=>{
+                    setUserPosts(response.data)
                 })
                 .catch((err)=>{
                     console.log(err)
@@ -82,10 +96,23 @@ export default function Profile() {
                     console.log(err)
                 })
         }
+
+        async function getPosts(){
+            console.log(profile.user_id)
+            await profileAPI.getUserPost(profile.user_id)
+                .then((posts)=>{
+                    setUserPosts(posts)
+                    console.log(posts)
+                }).catch((err)=>{
+                    console.log(err)
+                })
+        }
         getProfile()
         getProfilePhoto()
+        //getPosts()
 
     },[editProfile])
+    console.log(userPosts)
 
     function setPhoto(photoUrl){
         setProfilePhoto(photoUrl)
@@ -100,33 +127,44 @@ export default function Profile() {
         <>
             <div className="bg-gradient-to-b h-screen from-emerald-100 via-slate-50 to-transparent">
                 <Navbar/>
-                <div className="pt-20 gap-5 flex flex-col items-center ">
-                    <div className="bg-white shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
-                            { editProfile == 0 && 
-                                <ViewProfile 
-                                    profile={ profile }
-                                    editorChooser={ editorChooser }
-                                    profileExists={ profileExists }
-                                    currentUser={ currentUser }
-                                    profilePhoto={ profilePhoto } />
-                            }
-                            { editProfile == 1 && 
-                                <CreateProfile 
-                                    user={user}
-                                    profile={ profile }
-                                    editorChooser={ editorChooser }
-                                    profileExists={ profileExists }
-                                    setEditProfile={ setEditProfile }
-                                    profilePhoto={ profilePhoto }
-                                    setProfile={ setProfile } />
-                            }
-                            { editProfile == 2 && 
-                                <EditPhoto
-                                    editorChooser={ editorChooser }
-                                    profilePhoto={ profilePhoto }
-                                    setPhoto={ setPhoto } />
-                            }
+                <div className="pt-20 px-5 grid gap-5 grid-cols-12 md:mt-10 md:pt-10">
+                    <div className="col-span-12  sm:col-span-5 sm:order-2">
+
+                        <div className="gap-5 flex flex-col items-center ">
+                            <div className="bg-white shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                                    { editProfile == 0 && 
+                                        <ViewProfile 
+                                            profile={ profile }
+                                            editorChooser={ editorChooser }
+                                            profileExists={ profileExists }
+                                            currentUser={ currentUser }
+                                            profilePhoto={ profilePhoto } />
+                                    }
+                                    { editProfile == 1 && 
+                                        <CreateProfile 
+                                            user={user}
+                                            profile={ profile }
+                                            editorChooser={ editorChooser }
+                                            profileExists={ profileExists }
+                                            setEditProfile={ setEditProfile }
+                                            profilePhoto={ profilePhoto }
+                                            setProfile={ setProfile } />
+                                    }
+                                    { editProfile == 2 && 
+                                        <EditPhoto
+                                            editorChooser={ editorChooser }
+                                            profilePhoto={ profilePhoto }
+                                            setPhoto={ setPhoto } />
+                                    }
+                            </div>
                         </div>
+                    </div>
+                    <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
+                        <PostHistory />
+                        {userPosts.map((userPost, idx)=>
+                            <Posts  post={userPost} id={userPost.id} key={idx} />)}
+                    </div>
+
                 </div>
             </div>
         </>

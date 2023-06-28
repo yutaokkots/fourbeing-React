@@ -7,7 +7,7 @@ import CommunityResources from '../../components/Community/CommunityResources'
 import LanguageTranslator from '../../components/Language/LanguageTranslator'
 
 export default function Dashboard() {
-    const [allPosts, setAllPosts] = useState([""])
+    const [allPosts, setAllPosts] = useState([{}])
     const { user, setUser } = useContext(AuthContext)
     const [updatePage, setUpdatePage] = useState(1)
 
@@ -58,7 +58,6 @@ export default function Dashboard() {
                             {user &&
                                 <LanguageTranslator />
                             }
-                            
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">

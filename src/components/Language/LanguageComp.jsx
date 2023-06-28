@@ -59,6 +59,10 @@ export default function LanguageComp() {
     return (
         <>
             <div >
+                <div
+                    className="flex flex-col items-start text-lg">
+                    OpenAI-powered Translator Tool
+                </div>
                 <div className="flex flex-col items-end">
                     <button
                         onClick={setShowHide}

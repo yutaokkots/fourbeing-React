@@ -12,6 +12,12 @@ export function getProfile(id){
     return sendRequest(`${BASE_URL}/${id}/`)
 }
 
+// user/profile/<int:user_id>/get_all_posts/
+export function getUserPost(id){
+    return sendRequest(`${BASE_URL}/${id}/get_all_posts/`)
+}
+
+
 export function createProfile(userData){
     const id = usersService.getUserId()
     return sendRequest(`${BASE_URL}/${id}/create/`, "POST", userData)
