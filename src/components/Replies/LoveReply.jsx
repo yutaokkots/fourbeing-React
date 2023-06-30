@@ -28,7 +28,7 @@ export default function LoveReply({ reply, refresh }) {
             type="button"
             name="love"
             onClick={handleClick}
-            >{reply.love === 0 ? "🤍" : "🤍"} {reply.user}</button>
+            >{reply.love === 0 ? "🤍" : "🤍"} </button>
     )
 }
 

@@ -16,8 +16,8 @@ const initialProfile = {
     location: "",
     website: "",
     }
-const initialUserPost = [{}, {}]
-const initialUserReplies = [{}, {}]
+const initialUserPost = [{}]
+const initialUserReplies = [{}]
 
 export default function Profile() {
     let { userid } = useParams()
@@ -85,14 +85,8 @@ export default function Profile() {
                     return profile.profile.user_id
                 })
                 .then((userId)=>{
-
                     let userPosts = profileAPI.getUserPost(userId)
                     let userReplies = profileAPI.getUserReplies(userId)
-                    // let response = {
-                    //     0:userPosts, 
-                    //     1:userReplies
-                    // }
-                    // console.log(response)
                     return Promise.all([userPosts, userReplies])
                 })
                 .then(([userPosts, userReplies])=>{
@@ -185,7 +179,7 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
-                        <PostHistory userPosts={userPosts} />
+                        <PostHistory userPosts={userPosts} userReplies={userReplies} />
 
                     </div>
 

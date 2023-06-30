@@ -14,7 +14,7 @@ const initialReply = {
 
 export default function CreateReplyComp({ addCommentToggler, refresh }) {
     const [input, setInput] = useState(initialReply)
-    const { user } = useContext(AuthContext)
+    const { user, userId } = useContext(AuthContext)
     const postId = useParams()
     const [error, setError] = useState('');
 
@@ -39,6 +39,7 @@ export default function CreateReplyComp({ addCommentToggler, refresh }) {
             comment: input,
             profile: user_id,
             post: postId.postid,
+            user: userId
         }
         createReply(reply).then((response) => {
             return response.id

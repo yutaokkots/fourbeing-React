@@ -1,7 +1,10 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
 import Posts from '../../components/Postcard/Posts'
-export default function PostHistory({ userPosts }) {
+
+import Reply from '../../components/Replies/Reply'
+
+export default function PostHistory({ userPosts, userReplies }) {
     const [menu, setMenu] = useState(0)
 
     function handleClick(evt){
@@ -35,6 +38,10 @@ export default function PostHistory({ userPosts }) {
                         userPosts.map((userPost, idx)=>
                             <Posts  post={userPost} id={userPost.id} key={idx} />)
                     }
+                    {menu === 1 && 
+                        userReplies.map((userReply, idx)=>
+                            <Reply reply={userReply} id={userReply.id} key={idx} />)
+                    }
                 </div>
                 
             </div>
@@ -44,5 +51,6 @@ export default function PostHistory({ userPosts }) {
 
 
 PostHistory.propTypes = {
-    userPosts :PropTypes.array
+    userPosts :PropTypes.array,
+    userReplies :PropTypes.array
 }

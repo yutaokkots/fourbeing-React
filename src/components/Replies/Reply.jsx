@@ -13,7 +13,7 @@ const initialReply = {
 }
 
 export default function Reply({ reply, refresh }) {
-    const { user } = useContext(AuthContext)
+    const { user, userId } = useContext(AuthContext)
     const [replyObject, setReplyObject] = useState(initialReply)
     // 'setEditedComment()'passed down to 'EditReply' component
     const [editedComment, setEditedComment] = useState("")
@@ -54,7 +54,8 @@ export default function Reply({ reply, refresh }) {
             username : user,
             comment: editedComment,
             id: reply.id,
-            post: reply.post
+            post: reply.post,
+            user: userId
         }
         editReply(newReply, reply.post, reply.id)
         refresh()
@@ -65,6 +66,7 @@ export default function Reply({ reply, refresh }) {
         refresh()
     }
 
+    console.log(reply.love)
     return (
     <>
             <div className="bg-white shadow-inner ml-1 mr-1 border-zinc-400 regal p-1 rounded-md hover:text-afterhour hover:border-afterhour mt-3">
@@ -86,7 +88,11 @@ export default function Reply({ reply, refresh }) {
                                 }
                                 <div className="flex justify-end text-sm">
                                     
-                                    <div>by {reply.username}</div>
+                                    <div>Posted by &nbsp;
+                                <a className="underline" href={`/profile/${reply.user}`}>
+                                {reply.username}
+                                </a></div>
+                                    
                                 </div>  
                                 <div className="">
 
