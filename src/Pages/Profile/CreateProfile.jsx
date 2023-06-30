@@ -57,72 +57,73 @@ export default function CreateProfile( { user, profile, editorChooser, profileEx
 
     return (
     <>    
-        <div className="">Create/Edit Profile</div>
-        <form
-            onSubmit={handleSubmit}>
-            <div className='relative  flex-row justify-between'>
-                <label>Title:</label>
-                <input
-                    className="w-full border border-gray-300 rounded-md px-2 y-2"
-                    type="text"
-                    name="title"
-                    value={ profileInfo.title }
-                    onChange={handleChange}
-                    ></input>
-            </div>
-            <div className='relative  flex-row justify-between'>
-                <label>Bio:</label>
-                <textarea
-                    className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
-                    type="text"
-                    name="bio"
-                    value={ profileInfo.bio }
-                    onChange={handleChange}
-                    ></textarea>
-            </div>
-            <div className='relative  flex-row justify-between'>
-                <label>Location:</label>
-                <input
-                    className="w-full border border-gray-300 rounded-md px-2 y-2"
-                    type="text"
-                    name="location"
-                    value={ profileInfo.location }
-                    onChange={handleChange}
-                    ></input>
-            </div>
-            <div className='relative  flex-row justify-between'>
-                <label>Website:</label>
-                <input
-                    className="w-full border border-gray-300 rounded-md px-2 y-2"
-                    type="text"
-                    name="website"
-                    value={ profileInfo.website }
-                    onChange={handleChange}
-                    ></input>
-                <div
-                    className="pt-4 flex flex-col items-center">
-                    <div>
-                        {(error === "There was an error") && "There was an error"}
-                    </div>
+        <div className="">
+            <form
+                onSubmit={handleSubmit}>
+                <div className='relative  flex-row justify-between'>
+                    <label>Title:</label>
+                    <input
+                        className="w-full border border-gray-300 rounded-md px-2 y-2"
+                        type="text"
+                        name="title"
+                        value={ profileInfo.title }
+                        onChange={handleChange}
+                        ></input>
+                </div>
+                <div className='relative  flex-row justify-between'>
+                    <label>Bio:</label>
+                    <textarea
+                        className="w-full resize-y h-auto border border-gray-300 rounded-md px-2 y-2"
+                        type="text"
+                        name="bio"
+                        value={ profileInfo.bio }
+                        onChange={handleChange}
+                        ></textarea>
+                </div>
+                <div className='relative  flex-row justify-between'>
+                    <label>Location:</label>
+                    <input
+                        className="w-full border border-gray-300 rounded-md px-2 y-2"
+                        type="text"
+                        name="location"
+                        value={ profileInfo.location }
+                        onChange={handleChange}
+                        ></input>
+                </div>
+                <div className='relative  flex-row justify-between'>
+                    <label>Website:</label>
+                    <input
+                        className="w-full border border-gray-300 rounded-md px-2 y-2"
+                        type="text"
+                        name="website"
+                        value={ profileInfo.website }
+                        onChange={handleChange}
+                        ></input>
                     <div
-                        className="my-2">
-                        
-                        <button
-                            className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
-                            type="submit"
-                            >save</button>
-                    </div>
-                    <div>
-                        <button
-                            className=""
-                            onClick={handleClick}>
-                            ⬅ Go back
-                        </button>
+                        className="pt-4 flex flex-col items-center">
+                        <div>
+                            {(error === "There was an error") && "There was an error"}
+                        </div>
+                        <div
+                            className="my-2">
+                            
+                            <button
+                                className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
+                                type="submit"
+                                >save</button>
+                        </div>
+                        <div>
+                            <button
+                                className=""
+                                onClick={handleClick}>
+                                ⬅ Go back
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </form>
+            </form>
+        </div>
     </>
 
   )

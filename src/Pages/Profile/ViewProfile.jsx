@@ -8,8 +8,6 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
 
     return (
         <>
-
-
             <div className="flex flex-col items-center">
                 <div className="rounded-full"></div>
                 {profileExists ? 

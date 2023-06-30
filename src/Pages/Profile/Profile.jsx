@@ -155,7 +155,7 @@ export default function Profile() {
                     </div>
                     <div className="col-span-12 sm:col-span-5 sm:order-3 row-span-3">
                         <div className="flex flex-col items-center ">
-                            <div className="bg-white shadow-md  md:mt-10 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                            <div className="w-full bg-white shadow-md  md:mt-10 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                                     { editProfile == 0 && 
                                         <ViewProfile 
                                             profile={ profile }
