@@ -57,7 +57,6 @@ export default function Profile() {
         async function getProfile(){
             await profileAPI.getProfile(userid)
                 .then((profile)=>{
-                    console.log(profile)
                     if (profile.profile === "None"){
                         setProfileExists(false)
                     } else if (profile.profile !== "None") {
@@ -98,11 +97,9 @@ export default function Profile() {
         }
 
         async function getPosts(){
-            console.log(profile.user_id)
             await profileAPI.getUserPost(profile.user_id)
                 .then((posts)=>{
                     setUserPosts(posts)
-                    console.log(posts)
                 }).catch((err)=>{
                     console.log(err)
                 })
@@ -112,7 +109,6 @@ export default function Profile() {
         //getPosts()
 
     },[editProfile])
-    console.log(userPosts)
 
     function setPhoto(photoUrl){
         setProfilePhoto(photoUrl)
@@ -160,7 +156,7 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
-                        <PostHistory />
+
                         {userPosts.map((userPost, idx)=>
                             <Posts  post={userPost} id={userPost.id} key={idx} />)}
                     </div>

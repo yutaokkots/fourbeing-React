@@ -47,7 +47,7 @@ export default function Dashboard() {
     }, [])
 
     return (
-        <div className= "bg-gradient-to-b v-screen from-slate-400 via-slate-50 to-transparent">
+        <div className= "bg-gradient-to-b min-h-screen from-slate-400 via-slate-50 to-transparent">
             <Navbar />
             <div   >
                 

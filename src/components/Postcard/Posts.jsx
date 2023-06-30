@@ -25,7 +25,7 @@ export default function Posts({ post, id, refresh}) {
                                     <hr className="border-t border-gray-100 py-1"></hr>
 
                                     <div className=" text-left ">
-                                        { post.description.substring(0, 100) }
+                                        { post.description.substring(0, 125) } . . .
                                     </div>
 
                                 </div>

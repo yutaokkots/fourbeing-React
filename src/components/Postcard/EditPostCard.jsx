@@ -47,7 +47,7 @@ export default function EditPostCard() {
     }
 
     async function deletePost(userId, postId){
-        await postsAPI.deletePost(userId, postId)
+        return await postsAPI.deletePost(userId, postId)
     }
 
     function handleSubmit(evt) {
@@ -65,10 +65,11 @@ export default function EditPostCard() {
 
     function handleDelete(evt){
         evt.preventDefault()
-        deletePost().then((response) => {
-            return response.id
-        }).then((response) => {
-            navigate(`/fourbeing/${response}`)
+        deletePost(post.profile, post.id)
+        .then((response) => {
+            if (response.message == "deleted"){
+                navigate("/")
+            }
         }).catch((error) => {
             console.log(error)
             setError("There was an error")
@@ -110,7 +111,7 @@ export default function EditPostCard() {
                         <div className="flex justify-end">
                             {
                                 error &&
-                                    <h1>{error}</h1>
+                                    <h1 className="text-red-600">{error} &nbsp;</h1>
                             }
                             <h1>Post as { user }</h1>
                         </div>

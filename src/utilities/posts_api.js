@@ -1,5 +1,6 @@
 import sendRequest from "./send-requests"
 import fileSendRequest from "./file-send-requests"
+import { getUserId } from './users-service'
 
 const BASE_URL = "/api/fourbeing"
 
@@ -25,7 +26,9 @@ export function updatePost(postContent, postId){
 }
 
 export function deletePost(userId, postId){
-    return sendRequest(`${BASE_URL}/${postId}/delete/`)
+    if (userId == getUserId()){
+        return sendRequest(`${BASE_URL}/${userId}/${postId}/delete/`, "DELETE")
+    }
 }
 
 export function addLove (loveInfo, postId){

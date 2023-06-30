@@ -5,8 +5,7 @@ import Photo from '../../components/ProfilePhoto/Photo'
 
 export default function ViewProfile({ editorChooser, profileExists, profile, profilePhoto, currentUser }) {
     const { user, setUser } = useContext(AuthContext)
-    console.log(profileExists) 
-    console.log(profile)
+
     return (
         <>
 
