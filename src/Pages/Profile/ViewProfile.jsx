@@ -18,7 +18,7 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
                         <Photo profilePhoto={profilePhoto} />
                         }
                         <div className="ml-auto">username: {profile.username ? profile.username : "?"}</div>
-
+                        <hr className="border-t border-gray-100 py-1"/>
                         <div>{ profile.title }</div>
                         <div>{ profile.bio }</div>
                         <div>{ profile.location }</div>
@@ -27,21 +27,7 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
                     :
                     "It looks like you're looking for someone"
                     }
-                {/* {
-                    
-                    profile.username &&
-                    <>
-                        {profilePhoto != "" &&      
-                        <Photo profilePhoto={profilePhoto} />
-                        }
-                        <div className="ml-auto">username: {profile.username}</div>
 
-                        <div>{ profile.title }</div>
-                        <div>{ profile.bio }</div>
-                        <div>{ profile.location }</div>
-                        <div><a href={ 'https://' + profile.website }>{ profile.website }</a></div>
-                    </>
-                } */}
                 
             </div>
             {currentUser && 

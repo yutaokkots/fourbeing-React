@@ -18,6 +18,8 @@ export default function LanguageOutput({ promptReturn, change }) {
                 name="description" 
                 onChange={handleChange}
                 value={text}
+                placeholder="Translated content here"
+                disabled
                 // value={form.description}
                 >{text}</textarea>
         </>

@@ -40,7 +40,8 @@ export default function LoginForm() {
             <div className="bg-white shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                 <form 
                     autoComplete="off" 
-                    onSubmit={handleSubmit}>
+                    onSubmit={handleSubmit}
+                    aria-label="Log in form">
                     <div className='relative flex-row justify-between  mt-2 mb-2'>
                         <div><label>Username</label></div>
                         <div><input 
@@ -49,6 +50,7 @@ export default function LoginForm() {
                             name="username" 
                             value={credentials.login} 
                             onChange={handleChange} 
+                            placeholder="username"
                             required /></div>
                     </div>
 
@@ -60,6 +62,7 @@ export default function LoginForm() {
                             name="password" 
                             value={credentials.password} 
                             onChange={handleChange} 
+                            placeholder="password"
                             required /></div>
                     </div>
                     <div className="flex flex-col items-center ">

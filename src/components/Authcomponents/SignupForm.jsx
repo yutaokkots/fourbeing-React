@@ -39,7 +39,7 @@ export default function LoginForm() {
     return (
         <>
             <div className="bg-white shadow-md w-9/12 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
-                <form autoComplete="off" onSubmit={handleSubmit}>
+                <form autoComplete="off" onSubmit={handleSubmit} aria-label="Sign up form">
                     <div className='relative flex-row justify-between mt-2 mb-2'>
                         <label>username</label>
                         <input 
@@ -48,6 +48,7 @@ export default function LoginForm() {
                             name="username" 
                             value={credentials.username}
                             onChange={handleChange}
+                            placeholder="username"
                             required></input>
                     </div>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
@@ -58,6 +59,7 @@ export default function LoginForm() {
                             name="email" 
                             value={credentials.email}
                             onChange={handleChange}
+                            placeholder="email"
                             required></input>
                     </div>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
@@ -68,6 +70,7 @@ export default function LoginForm() {
                             name="password" 
                             value={credentials.password}
                             onChange={handleChange}
+                            placeholder="password"
                             required></input>
                     </div>
                     <div className='relative flex-row justify-between mt-2 mb-2'>
@@ -78,6 +81,7 @@ export default function LoginForm() {
                             name="passwordConfirm" 
                             value={credentials.passwordConfirm}
                             onChange={handleChange}
+                            placeholder="confirm password"
                             required></input>
                     </div>
                     <div className="flex flex-col items-center ">

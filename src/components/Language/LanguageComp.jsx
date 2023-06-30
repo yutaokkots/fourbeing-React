@@ -67,7 +67,7 @@ export default function LanguageComp() {
                     <button
                         onClick={setShowHide}
                         >
-                        {hide ? "Use translator" : "Hide translator" }
+                        {hide ? "Show translator" : "Hide translator" }
                     </button>
                 </div>
                 {hide ? 
@@ -78,7 +78,7 @@ export default function LanguageComp() {
                         <div className="py-2">
                             <LanguageInput setPromptRequest={ setPromptRequest }/>
                         </div>
-                        <div className="pb-4 grid grid-cols-2">
+                        <div className="pb-4 grid grid-cols-2 gap-2">
                             <LanguageDropdown setPromptLanguage={ setPromptLanguage }/>
                             <LanguageButton submitTranslation={ submitTranslation }/>
                         </div>

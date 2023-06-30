@@ -119,6 +119,7 @@ export default function CreatePostComp() {
                     </div>
                     <div className="flex justify-end">
                         <button
+                            type="submit"
                             className="bg-regallight hover:bg-regal text-white font-bold py-1 px-4 rounded-full"
                             >Submit</button>
                     </div>

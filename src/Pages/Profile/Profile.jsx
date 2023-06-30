@@ -17,6 +17,7 @@ const initialProfile = {
     website: "",
     }
 const initialUserPost = [{}, {}]
+const initialUserReplies = [{}, {}]
 
 export default function Profile() {
     let { userid } = useParams()
@@ -44,6 +45,9 @@ export default function Profile() {
 
     // 'userPosts' holds an object that stores all user posts
     const [userPosts, setUserPosts] = useState(initialUserPost)
+
+    // 'userReplies' holds an object that stores all user posts
+    const [userReplies, setUserReplies] = useState(initialUserReplies)
 
     function checkTokenAndProfile(userId){
         return usersService.getUserId() === parseInt(userId)
@@ -124,10 +128,9 @@ export default function Profile() {
             <div className="bg-gradient-to-b h-screen from-emerald-100 via-slate-50 to-transparent">
                 <Navbar/>
                 <div className="pt-20 px-5 grid gap-5 grid-cols-12 md:mt-10 md:pt-10">
-                    <div className="col-span-12  sm:col-span-5 sm:order-2">
-
-                        <div className="gap-5 flex flex-col items-center ">
-                            <div className="bg-white shadow-md w-60 sm:w-60 md:w-80 lg:w-96 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                    <div className="col-span-12 sm:col-span-5 sm:order-2">
+                        <div className="flex flex-col items-center ">
+                            <div className="bg-white shadow-md  mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                                     { editProfile == 0 && 
                                         <ViewProfile 
                                             profile={ profile }
@@ -156,9 +159,8 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
+                        <PostHistory userPosts={userPosts} />
 
-                        {userPosts.map((userPost, idx)=>
-                            <Posts  post={userPost} id={userPost.id} key={idx} />)}
                     </div>
 
                 </div>

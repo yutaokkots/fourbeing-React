@@ -45,6 +45,7 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
                         <div className="">
                             <button
                                 onClick={toggleDelete}
+                                type="submit"
                                 >Delete
                             </button>
                         </div>
@@ -54,6 +55,7 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
                                 <div className="text-red-600 inline-block">
                                     <button
                                         onClick={handleDelete}
+                                        type="submit"
                                         >Delete
                                     </button>
                                 </div>
@@ -61,6 +63,7 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
                                 <div className="inline-block">
                                     <button
                                         onClick={toggleCancel}
+                                        type="submit"
                                         >Cancel
                                     </button>
                                 </div>
@@ -74,6 +77,7 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
                             <div className="px-2 rounded-md border-zinc-100">
                                 <div className="inline-block">
                                     <button
+                                        type="submit"
                                         onClick={toggleCancel}
                                         >Cancel
                                     </button>
@@ -81,6 +85,7 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
                                 <div className="inline-block"><span>&nbsp;&nbsp;↔&nbsp;&nbsp;</span></div>
                                 <div className="inline-block">
                                     <button
+                                        type="submit"
                                         onClick={handleEdit}
                                         
                                         >Submit 
@@ -91,6 +96,7 @@ export default function DeleteEditComp({ handleDelete, handleEdit, handleSubmit,
                         :
                         <div className="">
                             <button
+                                type="submit"
                                 onClick={toggleEdit}
                                 >Submit
                             </button>

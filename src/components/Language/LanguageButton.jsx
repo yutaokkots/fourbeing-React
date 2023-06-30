@@ -8,6 +8,7 @@ export default function LanguageButton({ submitTranslation }) {
     return (
         <>
             <button
+                className='bg-slate-50 rounded-md hover:bg-slate-800 hover:text-white'
                 onClick={handleSubmit}
                 >Translate</button>
         </>
