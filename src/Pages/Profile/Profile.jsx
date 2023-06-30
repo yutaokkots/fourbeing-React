@@ -53,6 +53,16 @@ export default function Profile() {
         return usersService.getUserId() === parseInt(userId)
     }
 
+    function sortByDate(postArray){
+        return [...postArray].sort((a,b) => {  
+            if (a.created > b.created) {
+                return -1;
+            } else if (b.created < a.created) {
+                return 1;
+            } else {
+                return 0;
+            }})
+    }
 
     // loads the screen with a user's profile information, if any. 
     // if no user profile exists, the profileExists state is set to false
@@ -75,9 +85,25 @@ export default function Profile() {
                     return profile.profile.user_id
                 })
                 .then((userId)=>{
-                    return profileAPI.getUserPost(userId)
-                }).then((response)=>{
-                    setUserPosts(response.data)
+
+                    let userPosts = profileAPI.getUserPost(userId)
+                    let userReplies = profileAPI.getUserReplies(userId)
+                    // let response = {
+                    //     0:userPosts, 
+                    //     1:userReplies
+                    // }
+                    // console.log(response)
+                    return Promise.all([userPosts, userReplies])
+                })
+                .then(([userPosts, userReplies])=>{
+                    setUserPosts(userPosts.data)
+                    setUserReplies(userReplies.data)
+                    return [userPosts.data, userReplies.data]
+                })
+                .then(([userPostsData, userRepliesData]) => {
+                    setUserPosts(sortByDate(userPostsData))
+                    setUserReplies(sortByDate(userRepliesData))
+
                 })
                 .catch((err)=>{
                     console.log(err)

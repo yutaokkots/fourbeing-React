@@ -29,12 +29,13 @@ export default function Navbar() {
     return (
         <>
             <nav className="nav shadow-xl w-full fixed top-0 left-0  ">
-                <div className="flex items-center justify-between py-2 px-10 bg-gradient-to-r from-sky-900 via-sky-800 to-sky-800 border-b-2 border-b-slate-400" 
+                <div className="flex items-center justify-between py-2 px-10 bg-gradient-to-r from-sky-800 via-sky-800 to-sky-800 border-b-2 border-b-slate-400" 
                     aria-label="Navigation bar">
                     
                     <div className="font-bold text-2xl cursor-pointer flex items-end ">
-                        <a href="/" >
-                            <img src={logo}></img>
+                        <a 
+                            href="/" >
+                            <img className="drop-shadow-xl" src={logo}></img>
                         </a>
                     </div>
                     <div className="items-end">

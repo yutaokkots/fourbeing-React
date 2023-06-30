@@ -17,6 +17,12 @@ export function getUserPost(id){
     return sendRequest(`${BASE_URL}/${id}/get_all_posts/`)
 }
 
+// user/profile/<int:user_id>/get_all_replies/
+export function getUserReplies(id){
+    return sendRequest(`${BASE_URL}/${id}/get_all_replies/`)
+}
+
+
 
 export function createProfile(userData){
     const id = usersService.getUserId()
