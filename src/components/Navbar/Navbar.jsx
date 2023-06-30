@@ -28,8 +28,8 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="nav shadow-xl w-full fixed top-0 left-0  ">
-                <div className="flex items-center justify-between py-2 px-10 bg-gradient-to-r from-sky-800 via-sky-800 to-sky-800 border-b-2 border-b-slate-400" 
+            <nav className="nav shadow-xl w-full fixed top-0 left-0 backdrop-filter backdrop-blur-xl opacity-95 bg-slate-600/30">
+                <div className="flex items-center justify-between py-2 px-10 " 
                     aria-label="Navigation bar">
                     
                     <div className="font-bold text-2xl cursor-pointer flex items-end ">
@@ -42,20 +42,20 @@ export default function Navbar() {
                         <div>
                             <ul className="flex justify-end gap-5 content-center">
                                 <li className="md:ml-8 py-0 text-xl">
-                                    <a className="text-white hover:text-gray-400 duration-300" 
+                                    <a className="text-white hover:text-regal duration-400 transition ease-in-out delay-150 " 
                                         href='/'>Home</a>
                                 </li>
                                 { user ?
 
                                     <li className="md:ml-8 py-0  text-xl">
-                                        <a className="text-white hover:text-gray-400 duration-300" 
+                                        <a className="text-white hover:text-regal duration-400 transition ease-in-out delay-150 " 
                                             href='/'
                                             onClick={ logOut }
                                             >Logout</a>
                                     </li>
                                     :
                                     <li className="md:ml-8  py-0  text-xl">
-                                    <a className="text-white hover:text-gray-400 duration-300" 
+                                    <a className="text-white hover:text-regal duration-400 transition ease-in-out delay-150 " 
                                         href='/login'>Login</a>
                                     </li>
                                 }
@@ -64,7 +64,7 @@ export default function Navbar() {
                         <div className=" flex justify-items-end">
                             { user &&
                             <div className="md:ml-8 text-xl">
-                                <a className="text-white hover:text-gray-400 text-sm duration-300" 
+                                <a className="text-white hover:text-regal text-sm duration-400 transition ease-in-out delay-150 " 
                                     href='/profile'>hello, {user}</a>
                             </div>
                             }   

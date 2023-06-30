@@ -17,7 +17,6 @@ export default function ViewProfile({ editorChooser, profileExists, profile, pro
                         {profilePhoto != "" &&      
                         <Photo profilePhoto={profilePhoto} />
                         }
-                        <div className="ml-auto">username: {profile.username ? profile.username : "?"}</div>
                         <hr className="border-t border-gray-100 py-1"/>
                         <div>{ profile.title }</div>
                         <div>{ profile.bio }</div>

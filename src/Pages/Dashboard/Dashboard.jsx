@@ -50,7 +50,7 @@ export default function Dashboard() {
         <div className= "bg-gradient-to-b min-h-screen from-slate-400 via-slate-50 to-transparent">
             <Navbar />
             <div>
-                <div className="pt-20 px-5 grid gap-5 grid-cols-12 md:mt-10 md:pt-10">
+                <div className="pt-20 px-5 grid gap-5 grid-cols-12  md:pt-10">
                     <div className="col-span-12  sm:col-span-5 sm:order-2">
                         <div className="">
                             <CommunityResources />

@@ -6,7 +6,7 @@ import LovePost from './LovePost'
 export default function Posts({ post, id, refresh}) {
     return (
         <>
-            <div className="bg-white shadow-md mb-2 px-3 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour ">
+            <div className="bg-white shadow-md mb-2  md:mt-10 px-3 border-zinc-400 text-regal p-1 rounded-md hover:text-afterhour ">
                     <a href={`/fourbeing/${id}`}>
                         <div className="grid grid-cols-12 gap-3">
                             <div className="col-span-1 md:col-span-1 flex flex-col justify-center items-center ">

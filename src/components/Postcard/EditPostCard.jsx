@@ -79,7 +79,7 @@ export default function EditPostCard() {
 
     return (
         <>
-            <div className="shadow-md bg-white p-2 border-zinc-400 text-regal  rounded-md hover:text-afterhour hover:border-afterhour">
+            <div className="shadow-md bg-white p-2 border-zinc-400 text-regal  md:mt-10 rounded-md hover:text-afterhour hover:border-afterhour">
                 <div className="col-span-2">
                     Editing: {form.title}
                 </div>

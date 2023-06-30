@@ -65,7 +65,7 @@ export default function CreatePostComp() {
 
     return (
         <>
-            <div className="shadow-md border-zinc-400 rounded-md p-2 bg-white text-lining">
+            <div className="shadow-md border-zinc-400  md:mt-10 rounded-md p-2 bg-white text-lining">
                 <form
                     onSubmit={handleSubmit}>
                     <div className='relative flex-row justify-between mt-2 mb-2'>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import LanguageDropdown from './LanguageDropdown'
 import LanguageInput from './LanguageInput'
 import LanguageOutput from './LanguageOutput'
@@ -14,9 +14,26 @@ export default function LanguageComp() {
     const [change, setChange] = useState(1)
     const [hide, setHide] = useState(false)
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-    }, [waiting, promptReturn, change])
+    // }, [waiting, promptReturn, change])
+
+    useEffect(() => {
+        function handleResize() {
+          const windowWidth = window.innerWidth;
+          const windowHeight = window.innerHeight;
+          const isSmallScreen = windowWidth < 450 && windowHeight < 900 || windowWidth / windowHeight < 0.76 && windowHeight < 950;
+          setHide(isSmallScreen);
+        }
+    
+        window.addEventListener('resize', handleResize);
+        handleResize(); // Initial check
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, [waiting, promptReturn, change]);
+
 
     async function translate(content){
         const translation = await translateAPI.translate(content)
@@ -66,6 +83,7 @@ export default function LanguageComp() {
                 <div className="flex flex-col items-end">
                     <button
                         onClick={setShowHide}
+                        className="text-gray-400"
                         >
                         {hide ? "Show translator" : "Hide translator" }
                     </button>

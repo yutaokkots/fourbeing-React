@@ -10,7 +10,7 @@ export default function CreatePost() {
       <>
       <Navbar />
           <div  className="bg-gradient-to-b h-screen from-slate-400 via-slate-50 to-transparent">
-              <div className="pt-20 grid px-5 gap-4 grid-cols-12 md:mt-10 md:pt-10">
+              <div className="pt-20 grid px-5 gap-4 grid-cols-12 md:pt-10">
                   <div className="col-span-12  sm:col-span-5 sm:order-2">
                       <div className="">
                           <CommunityResources />

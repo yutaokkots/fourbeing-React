@@ -10,7 +10,7 @@ export default function Postcard({ singlePost, refresh }) {
 
     return (
         <>
-            <div className="bg-white shadow-md mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+            <div className="bg-white shadow-md mb-1  md:mt-10 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                 {
                     singlePost.photo &&
                 <div>

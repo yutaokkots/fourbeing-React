@@ -145,12 +145,17 @@ export default function Profile() {
 
     return (
         <>
-            <div className="bg-gradient-to-b h-screen from-emerald-100 via-slate-50 to-transparent">
+            <div className="bg-gradient-to-b h-screen from-cyan-700 via-slate-50 to-transparent">
                 <Navbar/>
-                <div className="pt-20 px-5 grid gap-5 grid-cols-12 md:mt-10 md:pt-10">
-                    <div className="col-span-12 sm:col-span-5 sm:order-2">
+                <div className=" pt-20 px-5 grid gap-5 grid-cols-12  md:pt-10 grid-flow-row">
+                    <div className="col-span-12 sm:col-span-7 sm:order-1">
+                        <div className="bg-white shadow-xl pb-2 pt-2  md:mt-10 text-cyan-700 text-center rounded-md text-xl">
+                            username: <span className='italic '>{profile.username}</span>
+                        </div>
+                    </div>
+                    <div className="col-span-12 sm:col-span-5 sm:order-3 row-span-3">
                         <div className="flex flex-col items-center ">
-                            <div className="bg-white shadow-md  mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
+                            <div className="bg-white shadow-md  md:mt-10 mb-1 p-3 pt-4 border-zinc-400 text-regal  rounded-md">
                                     { editProfile == 0 && 
                                         <ViewProfile 
                                             profile={ profile }
@@ -178,9 +183,8 @@ export default function Profile() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
+                    <div className="col-span-12 sm:col-span-7 sm:order-3 mb-20">
                         <PostHistory userPosts={userPosts} userReplies={userReplies} />
-
                     </div>
 
                 </div>

@@ -1,12 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 
 export default function CommunityInfo() {
-    const [hide, setHide] = useState(false)
+    const [hide, setHide] = useState(true)
 
     function showHideInfo(){
         setHide(!hide)
     }
+    useEffect(() => {
+      function handleResize() {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const isSmallScreen = windowWidth < 450 && windowHeight < 900 || windowWidth / windowHeight < 0.76 && windowHeight < 950;
+        setHide(isSmallScreen);
+      }
+  
+      window.addEventListener('resize', handleResize);
+      handleResize(); // Initial check
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
     return (
         <>
