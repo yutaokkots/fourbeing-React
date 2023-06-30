@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 export default function CommunityInfo() {
-    const [hide, setHide] = useState(true)
+    const [hide, setHide] = useState(false)
 
     function showHideInfo(){
         setHide(!hide)

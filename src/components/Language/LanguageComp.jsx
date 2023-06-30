@@ -12,7 +12,7 @@ export default function LanguageComp() {
     const [waiting, setWaiting] = useState(false)
     const [error, setError] = useState('');
     const [change, setChange] = useState(1)
-    const [hide, setHide] = useState(true)
+    const [hide, setHide] = useState(false)
 
     useEffect(()=>{
 
