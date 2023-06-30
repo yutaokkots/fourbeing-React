@@ -88,10 +88,15 @@ export default function Reply({ reply, refresh }) {
                                 }
                                 <div className="flex justify-end text-sm">
                                     
-                                    <div>Posted by &nbsp;
-                                <a className="underline" href={`/profile/${reply.user}`}>
-                                {reply.username}
-                                </a></div>
+                                <div>Posted by &nbsp;
+                                    { reply.username == '[deleted]' ?
+                                    reply.username 
+                                    :
+                                    <a className="underline" href={`/profile/${reply.user}`}>
+                                        {reply.username}
+                                    </a>
+                                    }
+                                </div>
                                     
                                 </div>  
                                 <div className="">
