@@ -59,7 +59,7 @@ export default function Dashboard() {
                             }
                         </div>
                     </div>
-                    <div className="col-span-12 sm:col-span-7 sm:order-1 mb-20">
+                    <div className="col-span-12 sm:col-span-7 md:mt-10 sm:order-1 mb-20">
                         <div className="">
                             {allPosts.map((post, idx) => 
                                 <Posts  post={post} id={post.id} key={idx} refresh={ refresh }/>)
