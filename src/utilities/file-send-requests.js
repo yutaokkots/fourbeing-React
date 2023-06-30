@@ -17,7 +17,7 @@ export default async function fileSendRequest(url, method = 'GET', file = null) 
         options.headers.Authorization = `Bearer ${token}`;
     } 
     console.log(options)
-    const res = await fetch(`${DEV_URL}${url}`, options);
+    const res = await fetch(`${PROD_URL}${url}`, options);
     if (res.ok) return res.json();
     throw new Error('Bad Request')
 
