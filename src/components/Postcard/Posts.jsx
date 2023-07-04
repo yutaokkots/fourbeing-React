@@ -2,6 +2,8 @@ import Comments from './Comments'
 import PropTypes from 'prop-types'
 import { Link } from "react-router-dom"
 import LovePost from './LovePost'
+import { relativeDate } from '../../utilities/helpers'
+
 
 export default function Posts({ post, id, refresh}) {
     return (
@@ -41,34 +43,47 @@ export default function Posts({ post, id, refresh}) {
                                             </div>
                                         </div>
                                     </div>
-                                        <div className="flex gap-3 justify-end">
-                                                    <div className="flex justify-end text-sm text-end ">
-                                                        Posted by { post.username }
-                                                    </div>
-                                                    <div>|</div>
-                                                    <div className="flex text-sm justify-end">
-                                                        {post.comments} comment{post.comments !== 1 ? "s" : ""}
-                                                    </div>
+                                    <div className="flex gap-1 justify-end">
+                                        <div className="flex justify-end text-sm text-end ">
+                                            Posted by { post.username }
                                         </div>
+                                        <div>|</div>
+                                        <div className="flex justify-end text-sm text-end ">
+                                            {relativeDate(post.created)} ago
+                                        </div>
+                                        <div>|</div>
+                                        <div className="flex text-sm justify-end">
+                                            {post.comments} comment{post.comments !== 1 ? "s" : ""}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
                             :
                             <div className="col-span-11">
-                                <div className="pl-2 pt-2">
-                                    <div className="text-lg text-left">
-                                        { post.title }
-                                    </div>
-                                    <hr className="border-t border-gray-100 py-1"></hr>
+                                <div className="grid-rows-2 gap-2">
+                                    <div className="pl-2 pt-2">
+                                        <div className="text-lg text-left">
+                                            { post.title }
+                                        </div>
+                                        <hr className="border-t border-gray-100 py-1"></hr>
 
-                                    <div className=" text-left ">
-                                        { post.description }
+                                        <div className=" text-left ">
+                                            { post.description }
+                                        </div>
                                     </div>
-                                    <div className="flex justify-end text-sm">
-                                        Posted by { post.username }
-                                    </div>
-                                    <div className="flex justify-end">
-                                        {post.comments} comment{post.comments !== 1 ? "s" : ""}
+                                    <div className="flex gap-1 justify-end">
+                                                <div className="flex justify-end text-sm text-end ">
+                                                    Posted by { post.username }
+                                                </div>
+                                                <div>|</div>
+                                                <div className="flex justify-end text-sm text-end ">
+                                                    {relativeDate(post.created)} ago
+                                                </div>
+                                                <div>|</div>
+                                                <div className="flex text-sm justify-end">
+                                                    {post.comments} comment{post.comments !== 1 ? "s" : ""}
+                                                </div>
                                     </div>
                                 </div>
                             </div>

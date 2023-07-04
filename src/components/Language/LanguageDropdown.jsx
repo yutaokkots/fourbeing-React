@@ -48,7 +48,10 @@ const languages = [
     },
     {code:"my",
         language:"Burmese"
-    }
+    },
+    {code:"bg",
+    language:"Bulgarian"
+}
 ]
 
 export default function LanguageDropdown({setPromptLanguage}) {

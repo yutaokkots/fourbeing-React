@@ -4,6 +4,8 @@ import { AuthContext } from '../../Pages/App'
 import * as replyAPI from '../../utilities/reply_api'
 import EditReply from './EditReply'
 import LoveReply from './LoveReply'
+import { relativeDate } from '../../utilities/helpers'
+
 
 const initialReply = {
     username : "",
@@ -86,21 +88,22 @@ export default function Reply({ reply, refresh }) {
                                         <div className="text-md">{reply.comment}</div>
                                 }
                                 <div className="flex justify-end text-sm">
-                                    
-                                <div>Posted by &nbsp;
-                                    { reply.username == '[deleted]' ?
-                                    reply.username 
-                                    :
-                                    <a className="underline" href={`/profile/${reply.user}`}>
-                                        {reply.username}
-                                    </a>
-                                    }
-                                </div>
-                                    
+                                    <div className="flex gap-1 justify-end">
+                                        <div>Posted by &nbsp;
+                                            { reply.username == '[deleted]' ?
+                                            reply.username 
+                                            :
+                                            <a className="underline" href={`/profile/${reply.user}`}>
+                                                {reply.username}
+                                            </a>
+                                            }
+                                        </div>
+                                        <div>|</div>
+                                        <div className="flex justify-end text-sm text-end ">
+                                            {relativeDate(reply.created)} ago
+                                        </div>
+                                    </div>
                                 </div>  
-                                <div className="">
-
-                                </div>
                             </div>
                         </div>
                             {

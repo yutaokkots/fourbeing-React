@@ -21,13 +21,13 @@ export default function PostHistory({ userPosts, userReplies }) {
                     <button
                         onClick={handleClick}
                         value="0"
-                        className={`bg-white rounded-t-lg px-4 pt-1 text-xl ${menu === 0 ? 'bg-slate-100' : 'bg-white'}`}>
+                        className={`rounded-t-lg px-4 pt-1 text-xl ${menu === 0 ? 'bg-slate-100' : 'bg-white'}`}>
                         Posts
                     </button>
                     <button
                         onClick={handleClick}
                         value="1"
-                        className={`bg-white rounded-t-lg px-4 pt-1 text-xl ${menu === 1 ? 'bg-slate-100' : 'bg-white'}`}>
+                        className={`rounded-t-lg px-4 pt-1 text-xl ${menu === 1 ? 'bg-slate-100' : 'bg-white'}`}>
                         Replies
                     </button>
                 </div>

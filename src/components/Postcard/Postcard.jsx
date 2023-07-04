@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { AuthContext } from '../../Pages/App'
 import { Link } from 'react-router-dom'
 import LovePost from './LovePost'
+import { relativeDate } from '../../utilities/helpers'
 
 export default function Postcard({ singlePost, refresh }) {
     const { user } = useContext(AuthContext)
@@ -31,12 +32,19 @@ export default function Postcard({ singlePost, refresh }) {
                             <div className="text-2xl">{ singlePost.title }</div>
                             <hr className="border-t border-gray-100 py-1"></hr>
                             <div>{ singlePost.description }</div>
-                            <div className="text-sm flex justify-end">
-                                Posted by &nbsp;
-                                <a className="underline" href={`/profile/${singlePost.profile}`}>
-                                {singlePost.username}
-                                </a>
+                            <div className="flex gap-1 justify-end">
+                                <div className="flex justify-end text-sm text-end ">
+                                    Posted by &nbsp;
+                                    <a className="underline" href={`/profile/${singlePost.profile}`}>
+                                    {singlePost.username}
+                                    </a>
+                                </div>
+                                <div>|</div>
+                                <div className="flex justify-end text-sm text-end ">
+                                    {relativeDate(singlePost.created)} ago
+                                </div>
                             </div>
+
                         </div>
                         <div className="flex justify-end">
                         {
